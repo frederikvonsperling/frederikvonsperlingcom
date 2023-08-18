@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@sanity/client": "^6.4.7",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "next": "^13.4.1",
     "next-sanity-client": "^1.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "*"
+    "react-syntax-highlighter": "^15.5.0",
+    "ui": "*",
+    "zod": "^3.22.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
