@@ -1,4 +1,5 @@
 import { Oswald, Source_Serif_4 } from "next/font/google";
+import './global.css';
 
 const oswald = Oswald({
   subsets: ["latin"],

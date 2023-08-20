@@ -1,4 +1,3 @@
-import { Button, Header } from "ui";
 import { createClient } from "@sanity/client";
 
 export default async function Page() {
@@ -15,8 +14,8 @@ export default async function Page() {
 
   return (
     <>
-      <Header text="Web" />
-      <Button />
+      {/* <Header text="Web" /> */}
+      {/* <Button /> */}
     </>
   );
 }
