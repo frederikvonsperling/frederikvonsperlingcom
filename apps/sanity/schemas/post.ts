@@ -47,12 +47,7 @@ export default defineType({
     defineField({
       name: "content",
       title: "Content",
-      type: "array",
-      of: [
-        defineArrayMember({ type: "code" }),
-        defineArrayMember({ type: "image" }),
-        defineArrayMember({ type: "block" }),
-      ],
+      type: "blockContent",
     }),
   ],
 

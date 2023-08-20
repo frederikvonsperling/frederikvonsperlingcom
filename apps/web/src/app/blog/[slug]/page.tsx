@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { postRepository } from "@/features/post/post.repository";
-import { CodeBlock } from "@/foundation/components/code-block";
+import { css } from "styled-system/css";
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const response = await postRepository.getPost({
@@ -22,13 +22,17 @@ export default async function Post({ params }: { params: { slug: string } }) {
   return (
     <div>
       <Link href="/blog">Back to Posts</Link>
-      <h1 style={{ fontFamily: "var(--font-family-oswald)", color: "white" }}>
+      <h1
+        className={css({
+          fontFamily: "var(--font-family-oswald)",
+          fontSize: "5xl",
+          color: "white",
+        })}
+      >
         {post.title}
       </h1>
       <div>
         {post.body?.map((block, index) => {
-          console.log(block);
-
           switch (block._type) {
             case "block": {
               return (
@@ -37,7 +41,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                     return (
                       <p
                         style={{
-                          fontFamily: "var(--font-family-source-serif)",
+                          fontFamily: "var(--font-family-source-sans)",
                           color: "white",
                         }}
                         key={index}
@@ -50,7 +54,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
               );
             }
             case "code-snippet": {
-              return <CodeBlock language="typescript">{block.code}</CodeBlock>;
+              return <p key={index}>Hye</p>;
             }
           }
         })}
