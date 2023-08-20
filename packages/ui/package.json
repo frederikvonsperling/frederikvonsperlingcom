@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint \"**/*.ts*\"",
-    "prepare": "panda codegen"
+    "prepare": "panda codegen",
+    "clean": "rm -rf node_modules package-lock.json styled-system .turbo"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.11.1",
