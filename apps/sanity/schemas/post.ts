@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
   name: "post",
@@ -45,9 +45,14 @@ export default defineType({
       type: "datetime",
     }),
     defineField({
-      name: "body",
-      title: "Body",
-      type: "blockContent",
+      name: "content",
+      title: "Content",
+      type: "array",
+      of: [
+        defineArrayMember({ type: "code" }),
+        defineArrayMember({ type: "image" }),
+        defineArrayMember({ type: "block" }),
+      ],
     }),
   ],
 
