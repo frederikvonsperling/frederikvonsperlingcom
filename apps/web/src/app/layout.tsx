@@ -1,19 +1,6 @@
-import { Oswald, Source_Serif_4 } from "next/font/google";
-import './global.css';
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-family-oswald",
-  weight: ["200", "300", "400", "600", "700"],
-});
-
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-family-source-serif",
-  weight: ["200", "300", "400", "600", "700", "800", "900"],
-});
+import { oswald, sourceSerif } from "./fonts";
+import "./global.css";
+import { MaintenanceMode } from "./maintenance-mode";
 
 export default function RootLayout({
   children,
@@ -26,7 +13,9 @@ export default function RootLayout({
       className={`${oswald.variable} ${sourceSerif.variable}`}
       style={{ backgroundColor: "#0C0F0A" }}
     >
-      <body>{children}</body>
+      <body>
+        <MaintenanceMode>{children}</MaintenanceMode>
+      </body>
     </html>
   );
 }
