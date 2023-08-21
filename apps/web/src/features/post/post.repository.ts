@@ -12,9 +12,9 @@ export type AsyncResponse<T> =
     };
 
 export type AsyncRequest<T = {}> = {
-  params?: T;
+  params: T;
   config?: {
-    next: {
+    next?: {
       revalidate?: number;
     };
   };

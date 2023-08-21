@@ -23,7 +23,7 @@ export const postSchema = entrySchema.extend({
   slug: z.object({
     current: z.string(),
   }),
-  body: z.array(z.union([blockSchema, codeSchema])),
+  content: z.array(z.union([blockSchema, codeSchema])),
 });
 
 export type PostType = z.infer<typeof postSchema>;

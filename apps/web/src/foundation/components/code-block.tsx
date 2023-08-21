@@ -14,11 +14,10 @@ export const CodeBlock = ({
     <div
       style={{
         background: "#282c34",
-        borderRadius: 10,
+        borderRadius: 5,
         overflow: "hidden",
       }}
     >
-      <div style={{ width: "100%", height: 20, background: "lightgray" }}></div>
       <SyntaxHighlighter
         showLineNumbers={true}
         language={language}
@@ -32,6 +31,8 @@ export const CodeBlock = ({
           style: {
             fontSize: 16,
             lineHeight: "1.8em",
+            fontFamily: "var(--font-family-inconsolata)",
+            fontWeight: 600,
           },
         }}
       >
