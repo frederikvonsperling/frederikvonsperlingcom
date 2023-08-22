@@ -1,12 +1,5 @@
-import {
-  inconsolata,
-  oswald,
-  sourceSerif,
-  PTSans,
-  nunito,
-  sourceSans,
-} from "./fonts";
 import "./global.css";
+import { ptSans, nunito, sourceCodePro } from "./fonts";
 import { MaintenanceMode } from "./maintenance-mode";
 
 export default function RootLayout({
@@ -17,8 +10,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.variable} ${PTSans.variable}`}
-      style={{ backgroundColor: "#0C0F0A" }}
+      className={`${nunito.variable} ${ptSans.variable} ${sourceCodePro.variable}`}
+      style={{ backgroundColor: "#121516" }}
     >
       <body>
         <MaintenanceMode>{children}</MaintenanceMode>

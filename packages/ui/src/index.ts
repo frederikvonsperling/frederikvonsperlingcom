@@ -17,6 +17,9 @@ export const uiPreset = definePreset({
           body: {
             value: "var(--font-family-pt-sans)",
           },
+          code: {
+            value: "var(--font-family-source-code-pro)",
+          },
         },
       },
     },
