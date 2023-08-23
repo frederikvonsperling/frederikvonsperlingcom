@@ -5,7 +5,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <div
       className={css({
-        maxW: "2xl",
+        maxW: "3xl",
         marginLeft: "auto",
         marginRight: "auto",
         p: 4,

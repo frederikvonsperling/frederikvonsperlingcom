@@ -4,7 +4,7 @@ import { AsyncRequest, AsyncResponse } from "../post.repository";
 
 export const getPostsOperation = async ({
   params,
-  config,
+  config = {},
 }: AsyncRequest): Promise<AsyncResponse<PostType[]>> => {
   const response = await sanityClient.fetch<PostType[]>(
     "*[_type == 'post']",

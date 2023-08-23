@@ -27,21 +27,77 @@ export default async function Post({ slug }: { slug: string }) {
     return notFound();
   }
 
+  const { width, height } = getImageDimensions(post.featuredImage);
+
+  console.log(post);
   return (
     <div>
-      <Link href="/blog">Back to Posts</Link>
+      <Link
+        className={css({
+          fontFamily: "body",
+          color: "white",
+          mb: 8,
+          display: "block",
+        })}
+        href="/blog"
+      >
+        Back to Posts
+      </Link>
 
-      <h2
+      <div className={css({ mb: 10 })}>
+        <div className={css({ overflow: "hidden", rounded: "sm", mx: -10 })}>
+          <img
+            src={builder
+              .image(post.featuredImage)
+              .width(1920)
+              .height(1080)
+              .fit("crop")
+              .format("webp")
+              .url()}
+            alt={""}
+            className={css({
+              transition: "transform 0.1s ease-in-out",
+
+              _hover: {
+                transform: "scale(1.01)",
+              },
+            })}
+          />
+        </div>
+        <p
+          className={css({
+            fontFamily: "body",
+            color: "white",
+            opacity: 0.5,
+            fontSize: "sm",
+            mt: 2,
+          })}
+        >
+          @ <span dangerouslySetInnerHTML={{ __html: post.credits }} />
+        </p>
+      </div>
+
+      <h1
         className={css({
           fontFamily: "heading",
-          fontSize: "xx-large",
+          fontSize: "5xl",
           mb: 1,
           fontWeight: "extrabold",
           color: "white",
+          lineHeight: "tight",
         })}
       >
         {post.title}
-      </h2>
+      </h1>
+      <p
+        className={css({
+          color: "yellow",
+          fontFamily: "body",
+          fontWeight: 600,
+        })}
+      >
+        {post.excerpt}
+      </p>
       <div className={grid({ gap: 4 })}>
         {post.content?.map((block, index) => {
           return (

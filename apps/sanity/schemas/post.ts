@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "post",
@@ -18,6 +18,21 @@ export default defineType({
         source: "title",
         maxLength: 96,
       },
+    }),
+    defineField({
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+    }),
+    defineField({
+      name: "featuredImage",
+      type: "image",
+      title: "Featured Image",
+    }),
+    defineField({
+      name: "credits",
+      type: "string",
+      title: "Credits",
     }),
     defineField({
       name: "author",

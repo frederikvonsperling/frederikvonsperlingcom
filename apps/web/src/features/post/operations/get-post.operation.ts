@@ -7,12 +7,9 @@ export const getPostOperation = async ({
   params,
 }: AsyncRequest<{ slug: string }>): Promise<AsyncResponse<PostType | null>> => {
   const response = await sanityClient.fetch<PostType[]>(
-    "*[_type == 'post' && slug.current == $slug]",
+    `*[_type == 'post' && slug.current == $slug]`,
     params,
-    {
-      perspective: "previewDrafts",
-      ...config,
-    }
+    config
   );
 
   return {

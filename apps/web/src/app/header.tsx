@@ -6,11 +6,21 @@ type Props = {};
 
 export const Header = ({}: Props) => {
   return (
-    <div className={css({ maxW: "4xl", mx: "auto", color: "white", py: 4 })}>
+    <div className={css({ maxW: "3xl", mx: "auto", color: "white", p: 4 })}>
       <div className={css({ display: "grid", gridTemplateColumns: "2" })}>
         <div>
           <Link href={"/"}>
-            <p className={css({ fontFamily: "code" })}>
+            <p
+              className={css({
+                fontFamily: "code",
+                display: "inline-block",
+                px: 1,
+                rounded: "sm",
+                bgGradient: "to-r",
+                gradientFrom: "red",
+                gradientTo: "pink",
+              })}
+            >
               frederikvonsperling.com
             </p>
           </Link>
