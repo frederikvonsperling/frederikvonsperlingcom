@@ -14,7 +14,7 @@ const builder = imageUrlBuilder(sanityClient);
 export default async function Post({ slug }: { slug: string }) {
   const response = await postRepository.getPost({
     params: { slug },
-    config: { next: { revalidate: 1 } },
+    config: { next: { revalidate: 10 } },
   });
 
   if (response.status === "error") {

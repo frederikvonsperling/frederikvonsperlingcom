@@ -52,18 +52,19 @@ export const CodeBlock = ({
       <SyntaxHighlighter
         showLineNumbers={true}
         language={language}
+        line
         style={styles?.atomOneDarkReasonable}
         customStyle={{
           background: "#282c34",
           paddingLeft: 20,
           paddingRight: 20,
-          paddingTop: 10,
-          paddingBottom: 10,
+          paddingTop: 20,
+          paddingBottom: 20,
         }}
         codeTagProps={{
           style: {
             fontSize: 16,
-            lineHeight: "1.8em",
+            lineHeight: "1.6em",
             letterSpacing: "-0.05em",
             fontWeight: 400,
             fontFamily: "var(--font-family-source-code-pro)",

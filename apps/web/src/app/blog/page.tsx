@@ -5,7 +5,7 @@ import { css } from "styled-system/css";
 export default async function Posts() {
   const response = await postRepository.getPosts({
     params: {},
-    config: { next: { revalidate: 1 } },
+    config: { next: { revalidate: 10 } },
   });
 
   return (
