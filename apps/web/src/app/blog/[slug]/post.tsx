@@ -29,7 +29,27 @@ export default async function Post({ slug }: { slug: string }) {
 
   const { width, height } = getImageDimensions(post.featuredImage);
 
-  console.log(post);
+  const Content = (child: any) => {
+    if (child.marks.includes("code")) {
+      return (
+        <span
+          className={css({
+            display: "inline-block",
+            bg: "gray.700",
+            px: 1,
+            rounded: "sm",
+            fontFamily: "code",
+            fontSize: "sm",
+            transform: "translateY(-1.5px)",
+          })}
+        >
+          {child.text}
+        </span>
+      );
+    }
+    return <>{child.text}</>;
+  };
+
   return (
     <div>
       <Link
@@ -77,27 +97,54 @@ export default async function Post({ slug }: { slug: string }) {
         </p>
       </div>
 
-      <h1
-        className={css({
-          fontFamily: "heading",
-          fontSize: "5xl",
-          mb: 1,
-          fontWeight: "extrabold",
-          color: "white",
-          lineHeight: "tight",
-        })}
-      >
-        {post.title}
-      </h1>
-      <p
-        className={css({
-          color: "yellow",
-          fontFamily: "body",
-          fontWeight: 600,
-        })}
-      >
-        {post.excerpt}
-      </p>
+      <header className={css({ mb: 8 })}>
+        <h1
+          className={css({
+            fontFamily: "heading",
+            fontSize: "5xl",
+            mb: 2,
+            fontWeight: "extrabold",
+            color: "white",
+            lineHeight: "tight",
+          })}
+        >
+          {post.title}
+        </h1>
+        <p
+          className={css({
+            color: "purple",
+            fontFamily: "body",
+            fontWeight: 400,
+            fontSize: "2xl",
+          })}
+        >
+          {post.excerpt}
+        </p>
+        <div className={css({ mt: 4 })}>
+          <div className={css({ display: "flex", gap: 2 })}>
+            {post.categories.map((category, index) => {
+              return (
+                <p
+                  className={css({
+                    bg: "purple",
+                    display: "inline-block",
+                    rounded: "sm",
+                    py: "0.5",
+                    px: 2,
+                    color: "white",
+                    font: "body",
+                    fontSize: "sm",
+                    fontWeight: "semibold",
+                  })}
+                  key={index}
+                >
+                  {category.title}
+                </p>
+              );
+            })}
+          </div>
+        </div>
+      </header>
       <div className={grid({ gap: 4 })}>
         {post.content?.map((block, index) => {
           return (
@@ -114,6 +161,26 @@ export default async function Post({ slug }: { slug: string }) {
                     );
                   },
                   block: ({ value }) => {
+                    if (value.style === "h2") {
+                      return (
+                        <h2
+                          className={css({
+                            fontSize: "4xl",
+                            color: "white",
+                            fontFamily: "heading",
+                            fontWeight: "bold",
+                            lineHeight: "tight",
+                            mt: 4,
+                            mb: -2,
+                          })}
+                        >
+                          {value.children.map((child, index) => (
+                            <Content key={index} {...child} />
+                          ))}
+                        </h2>
+                      );
+                    }
+
                     return (
                       <p
                         className={css({
@@ -122,27 +189,9 @@ export default async function Post({ slug }: { slug: string }) {
                           fontSize: "lg",
                         })}
                       >
-                        {value.children.map((child, index) => {
-                          if (child.marks.includes("code")) {
-                            return (
-                              <span
-                                className={css({
-                                  display: "inline-block",
-                                  bg: "gray.700",
-                                  px: 1,
-                                  rounded: "sm",
-                                  fontFamily: "code",
-                                  fontSize: "sm",
-                                  transform: "translateY(-1.5px)",
-                                })}
-                                key={index}
-                              >
-                                {child.text}
-                              </span>
-                            );
-                          }
-                          return <>{child.text}</>;
-                        })}
+                        {value.children.map((child, index) => (
+                          <Content key={index} {...child} />
+                        ))}
                       </p>
                     );
                   },

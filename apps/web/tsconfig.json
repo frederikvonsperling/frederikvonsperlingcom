@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "strictNullChecks": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@ui/*": ["../../packages/ui/src/*"],
+      "@styled-system/*": ["styled-system/*"]
     }
   },
 

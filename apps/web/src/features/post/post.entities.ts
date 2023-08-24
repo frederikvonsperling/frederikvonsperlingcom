@@ -31,6 +31,13 @@ export const postSchema = entrySchema.extend({
       _type: z.literal("reference"),
     }),
   }),
+  categories: z.array(
+    z.object({
+      _id: z.string(),
+      _type: z.literal("reference"),
+      title: z.string(),
+    })
+  ),
   credits: z.string(),
 });
 

@@ -52,7 +52,6 @@ export const CodeBlock = ({
       <SyntaxHighlighter
         showLineNumbers={true}
         language={language}
-        line
         style={styles?.atomOneDarkReasonable}
         customStyle={{
           background: "#282c34",
@@ -76,21 +75,17 @@ export const CodeBlock = ({
       <button
         onClick={handleCopy}
         className={css({
+          fontFamily: "body",
           pos: "absolute",
           bottom: 2,
           right: 4,
-          bg: "cyan.400",
+          bg: "purple",
+          color: "white",
           px: 2,
           fontSize: 14,
           fontWeight: 600,
           rounded: "sm",
           cursor: "pointer",
-          _hover: {
-            bg: "cyan.500",
-          },
-          _active: {
-            bg: "cyan.800",
-          },
         })}
       >
         {hasCopied ? "Copied!" : "Copy"}

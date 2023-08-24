@@ -12,13 +12,8 @@ export const Header = ({}: Props) => {
           <Link href={"/"}>
             <p
               className={css({
-                fontFamily: "code",
+                fontFamily: "body",
                 display: "inline-block",
-                px: 1,
-                rounded: "sm",
-                bgGradient: "to-r",
-                gradientFrom: "red",
-                gradientTo: "pink",
               })}
             >
               frederikvonsperling.com
@@ -26,7 +21,10 @@ export const Header = ({}: Props) => {
           </Link>
         </div>
         <div className={css({ display: "flex", justifyContent: "flex-end" })}>
-          <Link className={css({ textDecoration: "underline" })} href={"/blog"}>
+          <Link
+            className={css({ textDecoration: "underline", fontFamily: "body" })}
+            href={"/blog"}
+          >
             Blog
           </Link>
         </div>

@@ -11,9 +11,7 @@ export const uiPreset = definePreset({
       textStyles,
       tokens: {
         colors: {
-          yellow: {
-            value: "#F6F7C2",
-          },
+          yellow: { value: "#F6F7C2" },
           red: { value: "#C6294D" },
           purple: { value: "#D34D89" },
           pink: { value: "#DB63B8" },
