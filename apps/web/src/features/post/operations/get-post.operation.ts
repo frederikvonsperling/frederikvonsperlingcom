@@ -32,8 +32,6 @@ export const getPostOperation = async ({
     config
   );
 
-  console.log(response);
-
   return {
     status: "success",
     data: response[0] ?? null,

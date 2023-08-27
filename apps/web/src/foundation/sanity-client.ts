@@ -1,6 +1,7 @@
 import { createClient } from "@sanity/client";
+import sanityImageUrlBuilder from "@sanity/image-url";
 
-const sanityClient = createClient({
+export const sanityClient = createClient({
   projectId: "0ihtgybt",
   dataset: "production",
   useCdn: false,
@@ -8,4 +9,4 @@ const sanityClient = createClient({
   token: process.env.SANITY_API_TOKEN,
 });
 
-export { sanityClient };
+export const imageUrlBuilder = sanityImageUrlBuilder(sanityClient);

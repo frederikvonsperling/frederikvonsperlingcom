@@ -6,10 +6,7 @@ import { css } from "styled-system/css";
 import { PortableText } from "@portabletext/react";
 import { grid } from "styled-system/patterns";
 import { getImageDimensions } from "@sanity/asset-utils";
-import imageUrlBuilder from "@sanity/image-url";
-import { sanityClient } from "@/foundation/sanity-client";
-
-const builder = imageUrlBuilder(sanityClient);
+import { imageUrlBuilder } from "@/foundation/sanity-client";
 
 export default async function Post({ slug }: { slug: string }) {
   const response = await postRepository.getPost({
@@ -67,7 +64,7 @@ export default async function Post({ slug }: { slug: string }) {
       <div className={css({ mb: 10 })}>
         <div className={css({ overflow: "hidden", rounded: "sm", mx: -10 })}>
           <img
-            src={builder
+            src={imageUrlBuilder
               .image(post.featuredImage)
               .width(1920)
               .height(1080)
@@ -201,7 +198,7 @@ export default async function Post({ slug }: { slug: string }) {
                     return (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={builder
+                        src={imageUrlBuilder
                           .image(value)
                           .width(isInline ? 100 : 800)
                           .fit("max")

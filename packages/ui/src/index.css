@@ -1,1 +1,14 @@
 @layer reset, base, tokens, recipes, utilities;
+
+:root {
+    --font-family-nunito: 'Nunito', sans-serif;
+}
+
+:root {
+    --font-family-pt-sans: 'PT Sans', sans-serif;
+}
+
+:root {
+    --font-family-source-code-pro: 'Source Code Pro', monospace;
+}
+

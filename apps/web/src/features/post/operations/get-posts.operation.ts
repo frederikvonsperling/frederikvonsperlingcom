@@ -7,7 +7,27 @@ export const getPostsOperation = async ({
   config = {},
 }: AsyncRequest): Promise<AsyncResponse<PostType[]>> => {
   const response = await sanityClient.fetch<PostType[]>(
-    "*[_type == 'post']",
+    `*[_type == 'post'] {
+      _type,
+      content,
+      credits,
+      "categories": categories[]->{
+        _id,
+        _type,
+        title,
+      },
+      _updatedAt,
+      _id,
+      excerpt,
+      slug,
+      "author": author->{
+        name,
+        _id
+      },
+      title,
+      featuredImage,
+      _createdAt
+    }`,
     params,
     config
   );
