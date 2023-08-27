@@ -11,9 +11,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * Default one
- */
 export const Default: Story = {
   args: {
     title: "How to copy to clipboard in Javascript",

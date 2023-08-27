@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react";
 import { grid } from "styled-system/patterns";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { imageUrlBuilder } from "@/foundation/sanity-client";
+import { Picture } from "@ui/components/01-atoms/Picture/Picture";
 
 export default async function Post({ slug }: { slug: string }) {
   const response = await postRepository.getPost({
@@ -24,7 +25,13 @@ export default async function Post({ slug }: { slug: string }) {
     return notFound();
   }
 
-  const { width, height } = getImageDimensions(post.featuredImage);
+  const featuredImage = imageUrlBuilder
+    .image(post.featuredImage)
+    .width(1920)
+    .height(Math.round(1920 * (9 / 16)))
+    .fit("crop")
+    .format("webp")
+    .url();
 
   const Content = (child: any) => {
     if (child.marks.includes("code")) {
@@ -63,23 +70,7 @@ export default async function Post({ slug }: { slug: string }) {
 
       <div className={css({ mb: 10 })}>
         <div className={css({ overflow: "hidden", rounded: "sm", mx: -10 })}>
-          <img
-            src={imageUrlBuilder
-              .image(post.featuredImage)
-              .width(1920)
-              .height(1080)
-              .fit("crop")
-              .format("webp")
-              .url()}
-            alt={""}
-            className={css({
-              transition: "transform 0.1s ease-in-out",
-
-              _hover: {
-                transform: "scale(1.01)",
-              },
-            })}
-          />
+          <Picture srcSets={[{ src: featuredImage, size: 1920 }]} />
         </div>
         <p
           className={css({

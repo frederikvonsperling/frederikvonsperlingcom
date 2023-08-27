@@ -1,14 +1,10 @@
 import { definePreset } from "@pandacss/dev";
-
-import { defineTextStyles } from "@pandacss/dev";
-
-export const textStyles = defineTextStyles({});
+import { headingRecipe } from "@ui/components/01-atoms/Heading/heading.recipe";
 
 export const uiPreset = definePreset({
   theme: {
     tokens: {},
     extend: {
-      textStyles,
       tokens: {
         colors: {
           yellow: { value: "#F6F7C2" },
@@ -28,6 +24,9 @@ export const uiPreset = definePreset({
             value: "var(--font-family-source-code-pro)",
           },
         },
+      },
+      recipes: {
+        heading: headingRecipe,
       },
     },
   },

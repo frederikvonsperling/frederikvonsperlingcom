@@ -1,56 +1,25 @@
 import { css } from "@styled-system/css";
-import { Badge } from "../../01-atoms/Badge/Badge";
+import { Badge } from "@ui/components/01-atoms/Badge/Badge";
+import { Picture } from "@ui/components/01-atoms/Picture/Picture";
+import { ComponentProps } from "react";
+import { Heading } from "../../01-atoms/Heading/Heading";
 
 type Props = {
   title: string;
   excerpt: string;
-  image: {
-    srcSets: {
-      src: string;
-      size: number;
-    }[];
-    sizes: string;
-  };
+  image: ComponentProps<typeof Picture>;
   categories: string[];
 };
 
 export const Card = ({ title, excerpt, categories, image }: Props) => {
   return (
     <div className={css({ color: "white" })}>
-      <picture
-        className={css({
-          mb: 22,
-          display: "block",
-          bg: "gray.100",
-          aspectRatio: 16 / 9,
-          width: "full",
-          overflow: "hidden",
-          rounded: "sm",
-        })}
-      >
-        <source
-          srcSet={image.srcSets
-            .map((srcSet) => `${srcSet.src} ${srcSet.size}w`)
-            .join(", ")}
-          sizes="100vw"
-        />
-        <img
-          src="https://picsum.photos/200"
-          alt="image"
-          className={css({ width: "full", height: "full", objectFit: "cover" })}
-        />
-      </picture>
-      <h1
-        className={css({
-          fontFamily: "heading",
-          fontWeight: 800,
-          lineHeight: 1.2,
-          fontSize: 24,
-          mb: 1,
-        })}
-      >
+      <div className={css({ mb: 22 })}>
+        <Picture {...image} />
+      </div>
+      <Heading size="h3" element="h2">
         {title}
-      </h1>
+      </Heading>
       <p
         className={css({
           fontFamily: "body",
