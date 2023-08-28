@@ -27,7 +27,7 @@ export const CodeBlock = ({
   return (
     <div
       className={css({
-        background: "#282c34",
+        background: "#16171a",
         borderRadius: 5,
         overflow: "hidden",
         mb: 8,
@@ -51,10 +51,10 @@ export const CodeBlock = ({
       </div>
       <SyntaxHighlighter
         showLineNumbers={true}
-        language={language}
-        style={styles?.atomOneDarkReasonable}
+        language={"typescript"}
+        style={styles?.atomOneDark}
         customStyle={{
-          background: "#282c34",
+          background: "#16171a",
           paddingLeft: 20,
           paddingRight: 20,
           paddingTop: 20,

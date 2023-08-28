@@ -3,6 +3,7 @@ import { postRepository } from "@/features/post/post.repository";
 import { css } from "@styled-system/css";
 import { Card } from "@ui/components/03-molecules/Card/Card";
 import { imageUrlBuilder } from "@/foundation/sanity-client";
+import { Heading } from "@ui/components/01-atoms/Heading/Heading";
 
 export default async function Posts() {
   const response = await postRepository.getPosts({
@@ -13,17 +14,11 @@ export default async function Posts() {
   return (
     <div className={css({ maxW: "3xl", mx: "auto", p: 4 })}>
       <div>
-        <h1
-          className={css({
-            fontFamily: "heading",
-            fontSize: 30,
-            fontWeight: 800,
-            mb: 10,
-            color: "white",
-          })}
-        >
-          Posts
-        </h1>
+        <div className={css({ mb: 10 })}>
+          <Heading size="h1" element="h1">
+            Posts
+          </Heading>
+        </div>
         <div
           className={css({ display: "grid", gridTemplateColumns: "3", gap: 8 })}
         >

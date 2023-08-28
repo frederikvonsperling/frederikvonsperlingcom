@@ -11,10 +11,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * Heading H1
- */
-export const HeadingH1: Story = {
+export const Default: Story = {
   args: {
     children: "Javascript",
   },

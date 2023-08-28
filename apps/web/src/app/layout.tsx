@@ -4,12 +4,16 @@ import { MaintenanceMode } from "./maintenance-mode";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { css } from "@styled-system/css";
+import { Metadata } from "next";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Frederik von Sperling",
+    default: "La blog | Frederik von Sperling", // a default is required when creating a template
+  },
+};
+
+export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang="en"
@@ -65,4 +69,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};

@@ -24,7 +24,7 @@ export const Card = ({ title, excerpt, categories, image }: Props) => {
         className={css({
           fontFamily: "heading",
           fontSize: 16,
-          color: "purple",
+          color: "gray.400",
           fontWeight: 400,
           mb: 4,
           mt: 2,

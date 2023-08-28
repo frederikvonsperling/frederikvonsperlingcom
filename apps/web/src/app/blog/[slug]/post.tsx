@@ -8,6 +8,7 @@ import { grid } from "styled-system/patterns";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { imageUrlBuilder } from "@/foundation/sanity-client";
 import { Picture } from "@ui/components/01-atoms/Picture/Picture";
+import { Badge } from "@ui/components/01-atoms/Badge/Badge";
 
 export default async function Post({ slug }: { slug: string }) {
   const response = await postRepository.getPost({
@@ -39,7 +40,8 @@ export default async function Post({ slug }: { slug: string }) {
         <span
           className={css({
             display: "inline-block",
-            bg: "gray.700",
+            color: "gray.300",
+            bg: "#16171a",
             px: 1,
             rounded: "sm",
             fontFamily: "code",
@@ -111,24 +113,7 @@ export default async function Post({ slug }: { slug: string }) {
         <div className={css({ mt: 4 })}>
           <div className={css({ display: "flex", gap: 2 })}>
             {post.categories.map((category, index) => {
-              return (
-                <p
-                  className={css({
-                    bg: "purple",
-                    display: "inline-block",
-                    rounded: "sm",
-                    py: "0.5",
-                    px: 2,
-                    color: "white",
-                    font: "body",
-                    fontSize: "sm",
-                    fontWeight: "semibold",
-                  })}
-                  key={index}
-                >
-                  {category.title}
-                </p>
-              );
+              return <Badge key={category._id}>{category.title}</Badge>;
             })}
           </div>
         </div>

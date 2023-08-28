@@ -21,6 +21,14 @@ export const Default: Story = {
           size: 100,
           src: "https://picsum.photos/100",
         },
+        {
+          size: 800,
+          src: "https://picsum.photos/800",
+        },
+        {
+          size: 1400,
+          src: "https://picsum.photos/1400",
+        }
       ],
       sizes: "100vw",
     },
