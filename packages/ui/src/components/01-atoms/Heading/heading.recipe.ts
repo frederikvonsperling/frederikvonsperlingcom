@@ -12,7 +12,7 @@ export const headingRecipe = defineRecipe({
     size: {
       h1: { fontSize: "5xl", fontWeight: "extrabold" },
       h2: { fontSize: "4xl", fontWeight: "extrabold" },
-      h3: { fontSize: "3xl", fontWeight: "extrabold" },
+      h3: { fontSize: "2xl", fontWeight: "extrabold" },
       h4: {},
       h5: {},
       h6: {},

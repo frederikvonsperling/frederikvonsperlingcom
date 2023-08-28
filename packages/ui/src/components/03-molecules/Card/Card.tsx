@@ -22,10 +22,12 @@ export const Card = ({ title, excerpt, categories, image }: Props) => {
       </Heading>
       <p
         className={css({
-          fontFamily: "body",
+          fontFamily: "heading",
           fontSize: 16,
           color: "purple",
-          mb: 6,
+          fontWeight: 400,
+          mb: 4,
+          mt: 2,
         })}
       >
         {excerpt}
