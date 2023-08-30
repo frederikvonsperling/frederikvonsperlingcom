@@ -1,13 +1,24 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { css } from "styled-system/css";
-import { grid } from "styled-system/patterns";
 
 type Props = {};
 
 export const Header = ({}: Props) => {
+  const pathname = usePathname();
+
   return (
     <div
-      className={css({ maxW: "3xl", mx: "auto", color: "white", p: 4, mb: 10 })}
+      className={css({
+        maxW: "3xl",
+        mx: "auto",
+        color: "white",
+        px: 4,
+        py: 8,
+        mb: 10,
+      })}
     >
       <div className={css({ display: "grid", gridTemplateColumns: "3" })}>
         <div>
@@ -31,7 +42,15 @@ export const Header = ({}: Props) => {
             alignItems: "center",
           })}
         >
-          <Link className={css({ fontFamily: "body" })} href={"/blog"}>
+          <Link
+            className={css({
+              fontSize: "lg",
+              fontFamily: "body",
+              color: pathname === "/blog" ? "blue" : "white",
+              fontWeight: pathname === "/blog" ? "bold" : "normal",
+            })}
+            href={"/blog"}
+          >
             Blog
           </Link>
         </div>

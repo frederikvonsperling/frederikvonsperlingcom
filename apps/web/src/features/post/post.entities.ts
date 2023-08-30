@@ -39,6 +39,8 @@ export const postSchema = entrySchema.extend({
     })
   ),
   credits: z.string(),
+  _createdAt: z.string(),
+  _updatedAt: z.string(),
 });
 
 export type PostType = z.infer<typeof postSchema>;

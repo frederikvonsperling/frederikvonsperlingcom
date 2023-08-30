@@ -28,6 +28,9 @@ export default defineType({
       name: "featuredImage",
       type: "image",
       title: "Featured Image",
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: "credits",
@@ -40,25 +43,14 @@ export default defineType({
       type: "reference",
       to: { type: "author" },
     }),
-    defineField({
-      name: "mainImage",
-      title: "Main image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
+
     defineField({
       name: "categories",
       title: "Categories",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
     }),
-    defineField({
-      name: "publishedAt",
-      title: "Published at",
-      type: "datetime",
-    }),
+
     defineField({
       name: "content",
       title: "Content",
@@ -70,7 +62,7 @@ export default defineType({
     select: {
       title: "title",
       author: "author.name",
-      media: "mainImage",
+      media: "featuredImage",
     },
     prepare(selection) {
       const { author } = selection;

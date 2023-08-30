@@ -81,7 +81,7 @@ export default async function Page({ params }: Props) {
   };
 
   return (
-    <div>
+    <div className={css({ maxW: "3xl", mx: "auto", px: 4 })}>
       <Link
         className={css({
           fontFamily: "body",
@@ -112,6 +112,9 @@ export default async function Page({ params }: Props) {
       </div>
 
       <header className={css({ mb: 8 })}>
+        <p className={css({ color: "gray.500", fontFamily: "body", mb: 2 })}>
+          Last updated: {new Date(post._updatedAt).toLocaleDateString("en-US")}
+        </p>
         <h1
           className={css({
             fontFamily: "heading",
