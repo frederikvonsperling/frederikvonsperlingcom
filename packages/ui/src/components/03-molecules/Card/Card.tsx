@@ -7,16 +7,12 @@ import { Heading } from "../../01-atoms/Heading/Heading";
 type Props = {
   title: string;
   excerpt: string;
-  image: ComponentProps<typeof Picture>;
   categories: string[];
 };
 
-export const Card = ({ title, excerpt, categories, image }: Props) => {
+export const Card = ({ title, excerpt, categories }: Props) => {
   return (
     <div className={css({ color: "white" })}>
-      <div className={css({ mb: 22 })}>
-        <Picture {...image} />
-      </div>
       <Heading size="h3" element="h2">
         {title}
       </Heading>

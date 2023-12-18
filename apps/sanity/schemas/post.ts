@@ -24,19 +24,7 @@ export default defineType({
       title: "Excerpt",
       type: "text",
     }),
-    defineField({
-      name: "featuredImage",
-      type: "image",
-      title: "Featured Image",
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: "credits",
-      type: "string",
-      title: "Credits",
-    }),
+
     defineField({
       name: "author",
       title: "Author",

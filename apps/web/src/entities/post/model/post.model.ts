@@ -1,5 +1,7 @@
 import { z } from "zod";
-import { entrySchema } from "@/foundation/base-entities";
+import { entrySchema } from "@/shared/base-entities";
+
+export const marksSchema = z.array(z.string());
 
 export const codeSchema = z.object({
   _type: z.literal("code-snippet"),
@@ -9,6 +11,7 @@ export const codeSchema = z.object({
 export const spanSchema = z.object({
   _type: z.literal("span"),
   text: z.string(),
+  marks: marksSchema,
 });
 
 export const blockSchema = z.object({
@@ -24,21 +27,14 @@ export const postSchema = entrySchema.extend({
     current: z.string(),
   }),
   excerpt: z.string(),
-  content: z.array(z.union([blockSchema, codeSchema])),
-  featuredImage: z.object({
-    asset: z.object({
-      _ref: z.string(),
-      _type: z.literal("reference"),
-    }),
-  }),
+  content: z.any(),
   categories: z.array(
     z.object({
       _id: z.string(),
-      _type: z.literal("reference"),
+      _type: z.literal("category"),
       title: z.string(),
     })
   ),
-  credits: z.string(),
   _createdAt: z.string(),
   _updatedAt: z.string(),
 });

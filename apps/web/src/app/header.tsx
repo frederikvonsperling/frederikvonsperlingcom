@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { css } from "styled-system/css";
+import { css } from "@styled-system/css";
 
 type Props = {};
 
@@ -15,9 +15,9 @@ export const Header = ({}: Props) => {
         maxW: "3xl",
         mx: "auto",
         color: "white",
-        px: 4,
-        py: 8,
-        mb: 10,
+        px: "4",
+        py: "8",
+        mb: "10",
       })}
     >
       <div className={css({ display: "grid", gridTemplateColumns: "3" })}>
@@ -26,13 +26,13 @@ export const Header = ({}: Props) => {
             href={"/"}
             className={css({
               rounded: "full",
-              w: 10,
-              h: 10,
+              w: "10",
+              h: "10",
               overflow: "hidden",
               display: "block",
             })}
           >
-            <img src={"/frederikvonsperling.png"} />
+            {/* <img src={"/frederikvonsperling.png"} /> */}
           </Link>
         </div>
         <div

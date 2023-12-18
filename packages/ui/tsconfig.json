@@ -1,12 +1,12 @@
 {
-  "extends": "tsconfig/react-library.json",
+  "extends": "@fvs/tsconfig/react-library.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@ui/*" : ["src/*"],
+      "@ui/*": ["src/*"],
       "@styled-system/*": ["styled-system/*"]
     }
   }

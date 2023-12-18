@@ -1,23 +1,22 @@
 {
+  "name": "frederikvonsperlingcom",
   "private": true,
+  "packageManager": "pnpm@8.11.0",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "clean": "turbo run clean && rm -rf node_modules package-lock.json"
+    "clean": "turbo clean && rm -rf node_modules pnpm-lock.json"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.9.7",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "typescript": "^5.3.3",
+    "ui": "*"
   },
-  "name": "frederikvonsperlingdev",
-  "packageManager": "npm@9.5.1",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "dependencies": {
+    "turbo": "^1.11.2"
+  }
 }

@@ -1,16 +1,32 @@
 {
-  "extends": "tsconfig/nextjs.json",
+  "extends": "@fvs/tsconfig/nextjs.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "baseUrl": ".",
     "strictNullChecks": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@ui/*": ["../../packages/ui/src/*"],
-      "@styled-system/*": ["styled-system/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@ui/*": [
+        "../../packages/ui/src/*"
+      ],
+      "@styled-system/*": [
+        "styled-system/*"
+      ]
     }
   },
-
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

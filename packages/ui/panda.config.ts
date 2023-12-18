@@ -1,9 +1,9 @@
 import { defineConfig } from "@pandacss/dev";
 import { uiPreset } from "./src/panda-preset";
-import pandaPreset from "@pandacss/preset-panda";
+import { Config } from "@pandacss/types";
 
 export default defineConfig({
-  presets: [pandaPreset, uiPreset],
+  presets: [uiPreset],
 
   // Whether to use css reset
   preflight: true,
@@ -31,4 +31,4 @@ export default defineConfig({
       ],
     },
   },
-});
+}) satisfies Config;

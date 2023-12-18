@@ -52,7 +52,7 @@ export const CodeBlock = ({
       <SyntaxHighlighter
         showLineNumbers={true}
         language={"typescript"}
-        style={styles?.atomOneDark}
+        style={styles?.tomorrowNightBlue}
         customStyle={{
           background: "#16171a",
           paddingLeft: 20,
