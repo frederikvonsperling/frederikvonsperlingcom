@@ -11,6 +11,5 @@ export default defineConfig({
   ],
   jsxFramework: "react",
   strictTokens: true,
-  clean: true,
-  outdir: "./styled-system",
+  outdir: "styled-system",
 }) satisfies Config;

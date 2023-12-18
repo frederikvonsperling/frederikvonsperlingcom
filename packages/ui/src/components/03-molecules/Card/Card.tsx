@@ -1,7 +1,5 @@
 import { css } from "@styled-system/css";
 import { Badge } from "@ui/components/01-atoms/Badge/Badge";
-import { Picture } from "@ui/components/01-atoms/Picture/Picture";
-import { ComponentProps } from "react";
 import { Heading } from "../../01-atoms/Heading/Heading";
 
 type Props = {
@@ -18,9 +16,8 @@ export const Card = ({ title, excerpt, categories }: Props) => {
       </Heading>
       <p
         className={css({
-          fontFamily: "heading",
-          fontSize: 16,
-          color: "gray.400",
+          fontFamily: "body",
+          fontSize: 14,
           fontWeight: 400,
           mb: 4,
           mt: 2,

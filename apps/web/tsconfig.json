@@ -9,24 +9,17 @@
     "baseUrl": ".",
     "strictNullChecks": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@ui/*": [
-        "../../packages/ui/src/*"
-      ],
-      "@styled-system/*": [
-        "styled-system/*"
-      ]
+      "@/*": ["src/*"],
+      "@ui/*": ["../../packages/ui/src/*"],
+      "@styled-system/*": ["styled-system/*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "styled-system"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

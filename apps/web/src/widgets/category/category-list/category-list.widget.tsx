@@ -13,8 +13,9 @@ export default function CategoryList({ categories }: Props) {
       {categories.map((category) => {
         return (
           <Link
-            href={`/blog/${category.slug.current}`}
+            href={`/blog/category/${category.slug.current}`}
             className={css({ fontFamily: "body" })}
+            key={category._id}
           >
             {category.title}
           </Link>

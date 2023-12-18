@@ -1,4 +1,7 @@
 module.exports = {
   root: true,
-  extends: ["custom"],
+  extends: ["custom", "plugin:react/recommended"],
+  settings: {
+    react: { version: "detect" },
+  },
 };
