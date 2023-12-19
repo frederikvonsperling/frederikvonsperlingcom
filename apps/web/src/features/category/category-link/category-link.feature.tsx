@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 type Props = {
-  href: string;
+  slug: string;
   children: React.ReactNode;
 };
 
-export default function CategoryLinkFeature({ href, children }: Props) {
-  return <Link href={href}>{children}</Link>;
+export default function CategoryLinkFeature({ slug, children }: Props) {
+  return <Link href={`/articles/category/${slug}`}>{children}</Link>;
 }

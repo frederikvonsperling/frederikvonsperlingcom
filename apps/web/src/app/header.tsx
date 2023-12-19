@@ -26,23 +26,12 @@ export const Header = ({}: Props) => {
           className={css({
             fontSize: "md",
             fontFamily: "heading",
-            color: pathname === "/" ? "blue" : "white",
-            fontWeight: "normal",
-          })}
-          href={"/"}
-        >
-          Home
-        </Link>
-        <Link
-          className={css({
-            fontSize: "md",
-            fontFamily: "heading",
-            color: pathname === "/articles" ? "blue" : "white",
+            color: "white",
             fontWeight: "normal",
           })}
           href={"/articles"}
         >
-          Blog
+          Articles
         </Link>
       </div>
     </div>

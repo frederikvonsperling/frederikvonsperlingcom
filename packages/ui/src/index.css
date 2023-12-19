@@ -1,14 +1,7 @@
 @layer reset, base, tokens, recipes, utilities;
 
 :root {
-    --font-family-nunito: 'Nunito', sans-serif;
+  --font-family-ibm-plex-sans-condensed: "IBM Plex Sans Condensed", sans-serif;
+  --font-family-ibm-plex-sans: "IBM Plex Sans", sans-serif;
+  --font-family-source-code-pro: "Source Code Pro", monospace;
 }
-
-:root {
-    --font-family-pt-sans: 'PT Sans', sans-serif;
-}
-
-:root {
-    --font-family-source-code-pro: 'Source Code Pro', monospace;
-}
-

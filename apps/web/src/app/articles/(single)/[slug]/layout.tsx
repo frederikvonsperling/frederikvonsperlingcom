@@ -14,15 +14,12 @@ export default function Layout({ children, params }: Props) {
       <div className={hstack({ alignItems: "stretch", gap: "8" })}>
         <div
           className={css({
-            borderRight: "1px solid white",
             flexBasis: "56",
             flexShrink: 0,
+            flexGrow: 0,
           })}
         >
           <div>
-            <Heading element="h3" size="h3" className={css({ mb: "2" })}>
-              Content
-            </Heading>
             <PostNavWidget slug={params.slug} />
           </div>
         </div>

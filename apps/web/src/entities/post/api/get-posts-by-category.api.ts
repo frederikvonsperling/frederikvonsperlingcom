@@ -6,30 +6,27 @@ import intoError from "@/shared/api/into-error";
 import { cache } from "react";
 
 const query = `
-*[_type == 'category' && slug.current in $slugs] {
-    _type,
+*[_type == 'post' && count((categories[]->slug.current)[@ in $slugs]) > 0] {
+    content,
+    credits,
+    "categories": categories[]->{
+      _id,
+      _type,
+      title,
+    },
+    _updatedAt,
     _id,
-    "posts": *[_type == 'post' && references(^._id)] {
-        content,
-        credits,
-        "categories": categories[]->{
-          _id,
-          _type,
-          title,
-        },
-        _updatedAt,
-        _id,
-        excerpt,
-        slug,
-        "author": author->{
-          name,
-          _id
-        },
-        title,
-        featuredImage,
-        _createdAt
-    }
-  }`;
+    excerpt,
+    slug,
+    "author": author->{
+      name,
+      _id
+    },
+    title,
+    featuredImage,
+    _createdAt
+  }
+`;
 
 type Params = {
   params: {
@@ -39,9 +36,9 @@ type Params = {
 
 async function getPostsByCategoryApi({ params }: Params) {
   const postsResponse = await ResultAsync.fromPromise(
-    sanityClient
-      .fetch(query, params)
-      .then((category) => z.array(postSchema).parse(category[0].posts)),
+    sanityClient.fetch(query, params).then((posts) => {
+      return z.array(postSchema).parse(posts);
+    }),
     (error) => intoError(error, "Something went wrong")
   );
 

@@ -10,7 +10,7 @@ type Props = {
 
 export default async function PostsPage({ slug }: Props) {
   return (
-    <div className={css({ maxW: "5xl", mx: "auto", p: "4" })}>
+    <div className={css({ maxW: "5xl", mx: "auto" })}>
       <div className={hstack({ alignItems: "stretch", gap: "8" })}>
         <Suspense fallback={<p>Getting posts</p>}>
           <PostGridWidget slug={slug} />

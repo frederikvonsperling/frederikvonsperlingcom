@@ -1,4 +1,5 @@
 import { PostType } from "@/entities/post/model/post.model";
+import { css } from "@styled-system/css";
 import Link from "next/link";
 
 type Props = {

@@ -1,12 +1,13 @@
 import getCategoryListApi from "@/entities/category/api/get-category-list.api";
-import { CategoryModel } from "@/entities/category/model/category.model";
-import CategoryItem from "@/entities/category/ui/category-item";
-import CategoryLink from "@/features/category/category-link";
 import { css } from "@styled-system/css";
 import { vstack } from "@styled-system/patterns";
 import SingleCategory from "./single-category";
 
-export default async function CategoryMenuWidget() {
+type Props = {
+  slug?: string;
+};
+
+export default async function CategoryMenuWidget({ slug }: Props) {
   const categoriesResponse = await getCategoryListApi();
 
   if (categoriesResponse.isErr()) {
@@ -19,11 +20,18 @@ export default async function CategoryMenuWidget() {
         {categoriesResponse.value.map((categoryList) => {
           return (
             <li key={categoryList._id}>
-              <SingleCategory category={categoryList.mainCategory} />
+              <SingleCategory
+                category={categoryList.mainCategory}
+                isActive={slug === categoryList.mainCategory.slug.current}
+              />
               <ul className={css({ ml: "4" })}>
                 {categoryList.categories.map((category) => {
                   return (
-                    <SingleCategory category={category} key={category._id} />
+                    <SingleCategory
+                      category={category}
+                      key={category._id}
+                      isActive={slug === category.slug.current}
+                    />
                   );
                 })}
               </ul>

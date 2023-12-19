@@ -10,7 +10,6 @@ type Props = {
 };
 
 export default function Layout({ children, params }: Props) {
-  console.log("params", params);
   return (
     <div className={css({ maxW: "5xl", mx: "auto", p: "4" })}>
       <div className={hstack({ alignItems: "stretch", gap: "8" })}>
@@ -18,18 +17,18 @@ export default function Layout({ children, params }: Props) {
           className={css({
             flexBasis: "56",
             flexShrink: 0,
+            flexGrow: 0,
           })}
         >
-          <div>
-            <Heading element="h3" size="h3" className={css({ mb: "2" })}>
-              Categories
-            </Heading>
+          <Heading element="h3" size="h3" className={css({ mb: "2" })}>
+            Categories
+          </Heading>
 
-            <Suspense fallback={<p>Getting categories</p>}>
-              <CategoryMenuWidget />
-            </Suspense>
-          </div>
+          <Suspense fallback={<p>Getting categories</p>}>
+            <CategoryMenuWidget slug={params.slug} />
+          </Suspense>
         </div>
+
         <div>{children}</div>
       </div>
     </div>

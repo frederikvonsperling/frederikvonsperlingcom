@@ -1,7 +1,5 @@
 import { css } from "@styled-system/css";
-import Link from "next/link";
 import Badge from "@ui/components/badge";
-import { PostType } from "@/entities/post/model/post.model";
 import PortableText from "@/shared/components/portable-text";
 import getPostApi from "@/entities/post/api/get-post.api";
 
@@ -20,19 +18,6 @@ export default async function SinglePostWidget({ slug }: Props) {
 
   return (
     <div className={css({ maxW: "3xl", mx: "auto", px: "4" })}>
-      <Link
-        className={css({
-          fontFamily: "body",
-          color: "white",
-          mb: "8",
-          display: "block",
-          textDecoration: "underline",
-        })}
-        href="/articles"
-      >
-        Back to Posts
-      </Link>
-
       <header className={css({ mb: "8" })}>
         <p className={css({ fontFamily: "code", mb: "4" })}>
           Last updated: {new Date(post._updatedAt).toLocaleDateString("en-US")}

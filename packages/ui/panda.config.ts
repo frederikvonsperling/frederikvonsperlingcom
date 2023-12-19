@@ -3,7 +3,7 @@ import { uiPreset } from "./src/panda-preset";
 import { Config } from "@pandacss/types";
 
 export default defineConfig({
-  presets: [uiPreset],
+  presets: ["@pandacss/dev/presets", uiPreset],
 
   // Whether to use css reset
   preflight: true,
