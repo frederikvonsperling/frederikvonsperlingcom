@@ -1,18 +1,24 @@
-import { PostType } from "@/entities/post/model/post.model";
 import PostCard from "@/entities/post/ui/post-card/post-card";
 import PostLink from "@/features/post/post-link/post-link";
 import { css } from "@styled-system/css";
+import { getPosts } from "./get-posts";
 
 type Props = {
-  posts: PostType[];
+  slug?: string;
 };
 
-export default async function PostGridWidget({ posts }: Props) {
+export default async function PostGridWidget({ slug }: Props) {
+  const postsResponse = await getPosts({ slug });
+
+  if (postsResponse.isErr()) {
+    return <p>Failed to get posts: {postsResponse.error.message}</p>;
+  }
+
   return (
     <div
       className={css({ display: "grid", gridTemplateColumns: "3", gap: "8" })}
     >
-      {posts.map((post) => (
+      {postsResponse.value.map((post) => (
         <PostLink post={post} key={post._id}>
           <PostCard post={post} />
         </PostLink>

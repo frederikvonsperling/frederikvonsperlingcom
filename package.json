@@ -4,12 +4,13 @@
   "packageManager": "pnpm@8.11.0",
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "rm -rf apps/web/.next && turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "turbo clean && rm -rf node_modules pnpm-lock.json"
   },
   "devDependencies": {
+    "@fvs/web": "workspace:^",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "prettier": "^2.5.1",

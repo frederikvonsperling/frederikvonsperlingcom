@@ -13,6 +13,7 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@fvs/tsconfig": "workspace:*",
     "@pandacss/dev": "^0.22.1",
     "@pandacss/types": "^0.22.1",
     "@storybook/addon-essentials": "^7.3.2",
@@ -23,16 +24,16 @@
     "@storybook/react": "^7.3.2",
     "@storybook/react-vite": "^7.3.2",
     "@storybook/testing-library": "^0.2.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "eslint": "^7.32.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-syntax-highlighter": "^15.5.11",
+    "eslint": "^8.56.0",
     "eslint-config-custom": "*",
     "eslint-plugin-storybook": "^0.6.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.3.2",
-    "@fvs/tsconfig": "workspace:*",
-    "typescript": "^4.5.2"
+    "typescript": "^5.3.3"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +43,9 @@
     ]
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.4",
+    "@portabletext/types": "^2.0.5",
+    "react-syntax-highlighter": "^15.5.0",
     "vite-tsconfig-paths": "^4.2.0"
   }
 }

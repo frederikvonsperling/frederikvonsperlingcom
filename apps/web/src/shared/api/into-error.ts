@@ -20,6 +20,7 @@ export default function intoError(
   error: unknown,
   fallbackMessage: string
 ): Error {
+  console.log(error);
   if (error instanceof ZodError) {
     return fromZodError(error);
   }

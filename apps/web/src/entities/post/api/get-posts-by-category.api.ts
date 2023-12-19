@@ -6,7 +6,7 @@ import intoError from "@/shared/api/into-error";
 import { cache } from "react";
 
 const query = `
-*[_type == 'category' && slug.current == $slug] {
+*[_type == 'category' && slug.current in $slugs] {
     _type,
     _id,
     "posts": *[_type == 'post' && references(^._id)] {
@@ -33,7 +33,7 @@ const query = `
 
 type Params = {
   params: {
-    slug: string;
+    slugs: Array<string>;
   };
 };
 

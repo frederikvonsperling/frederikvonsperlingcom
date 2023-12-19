@@ -8,4 +8,5 @@ export default {
   purpleLight: { value: "rgb(211 77 137 / 20%)" },
   pink: { value: "#DB63B8" },
   blue: { value: "#9ABAFA" },
+  darkGray: { value: "#16171a" },
 } satisfies Tokens["colors"];

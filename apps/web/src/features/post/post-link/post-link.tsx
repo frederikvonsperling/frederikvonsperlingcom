@@ -11,7 +11,7 @@ export default function PostLink({ post, children }: Props) {
     <Link
       data-post-id={post._id}
       key={post._id}
-      href={`/blog/${post.slug.current}`}
+      href={`/articles/${post.slug.current}`}
     >
       {children}
     </Link>

@@ -1,6 +1,5 @@
-import { imageUrlBuilder } from "@/shared/sanity-client";
 import { PostType } from "../../model/post.model";
-import { Card } from "@ui/components/03-molecules/Card/Card";
+import Card from "@ui/components/card";
 
 type Props = {
   post: PostType;

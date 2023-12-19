@@ -1,24 +1,22 @@
-import { CategoryModel } from "@/entities/category/model/category.model";
-import { css } from "@styled-system/css";
+import getCategoriesApi from "@/entities/category/api/get-categories.api";
+import CategoryItem from "@/entities/category/ui/category-item";
+import CategoryLink from "@/features/category/category-link";
 import { vstack } from "@styled-system/patterns";
-import Link from "next/link";
 
-type Props = {
-  categories: CategoryModel[];
-};
+export default async function CategoryList() {
+  const categoriesResponse = await getCategoriesApi();
 
-export default function CategoryList({ categories }: Props) {
+  if (categoriesResponse.isErr()) {
+    return <p>Failed to get categories: {categoriesResponse.error.message}</p>;
+  }
+
   return (
     <div className={vstack({ alignItems: "flex-start" })}>
-      {categories.map((category) => {
+      {categoriesResponse.value.map((category) => {
         return (
-          <Link
-            href={`/blog/category/${category.slug.current}`}
-            className={css({ fontFamily: "body" })}
-            key={category._id}
-          >
-            {category.title}
-          </Link>
+          <CategoryLink slug={category.slug.current} key={category._id}>
+            <CategoryItem category={category} />
+          </CategoryLink>
         );
       })}
     </div>
