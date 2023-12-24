@@ -1,7 +1,7 @@
 import getCategoriesApi from "@/entities/category/api/get-categories.api.cache";
 import CategoryItem from "@/entities/category/ui/category-item";
 import CategoryLink from "@/features/category/category-link";
-import { vstack } from "@styled-system/patterns";
+import { hstack, vstack } from "@styled-system/patterns";
 
 export default async function CategoryListWidget() {
   const categoriesResponse = await getCategoriesApi();
@@ -11,7 +11,13 @@ export default async function CategoryListWidget() {
   }
 
   return (
-    <div className={vstack({ alignItems: "flex-start" })}>
+    <div
+      className={hstack({
+        alignItems: "flex-start",
+        flexWrap: "wrap",
+        gap: "2",
+      })}
+    >
       {categoriesResponse.value.map((category) => {
         return (
           <CategoryLink slug={category.slug.current} key={category._id}>

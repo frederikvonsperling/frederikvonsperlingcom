@@ -1,3 +1,4 @@
+import { css } from "@styled-system/css";
 import Link from "next/link";
 
 type Props = {
@@ -6,5 +7,12 @@ type Props = {
 };
 
 export default function CategoryLinkFeature({ slug, children }: Props) {
-  return <Link href={`/articles/category/${slug}`}>{children}</Link>;
+  return (
+    <Link
+      className={css({ display: "block" })}
+      href={`/articles/category/${slug}`}
+    >
+      {children}
+    </Link>
+  );
 }

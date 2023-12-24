@@ -16,6 +16,7 @@ export default function Layout({ children, params }: Props) {
         <div
           className={css({
             flexBasis: "56",
+            flexShrink: 0,
           })}
         >
           <div>

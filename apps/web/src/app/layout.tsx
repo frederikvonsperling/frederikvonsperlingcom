@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     >
       <body className={css({ w: "full", h: "full", minH: "screen" })}>
         <Header />
-        <MaintenanceMode>{children}</MaintenanceMode>
+        {children}
         <Footer />
       </body>
     </html>

@@ -12,20 +12,33 @@ export const Header = ({}: Props) => {
 
   return (
     <div
-      className={css({
-        maxW: "3xl",
+      className={hstack({
+        maxW: "5xl",
         mx: "auto",
         color: "white",
         px: "4",
-        py: "8",
-        mb: "10",
+        py: "10",
       })}
     >
-      <div className={hstack({ justifyContent: "center" })}>
+      <div className={css({ flex: "1", fontWeight: "bold" })}>
+        Frederik von Sperling
+      </div>
+      <div
+        className={hstack({ justifyContent: "center", flex: "1", gap: "8" })}
+      >
         <Link
           className={css({
             fontSize: "md",
-            fontFamily: "heading",
+            color: "white",
+            fontWeight: "normal",
+          })}
+          href={"/"}
+        >
+          Home
+        </Link>
+        <Link
+          className={css({
+            fontSize: "md",
             color: "white",
             fontWeight: "normal",
           })}
@@ -33,6 +46,9 @@ export const Header = ({}: Props) => {
         >
           Articles
         </Link>
+      </div>
+      <div className={css({ flex: "1", textAlign: "right" })}>
+        Imagine a cool search here
       </div>
     </div>
   );
