@@ -8,7 +8,7 @@ export default function NormalBlock({
   return (
     <p
       className={css({
-        fontSize: "lg",
+        fontSize: "md",
         fontFamily: "body",
         lineHeight: "relaxed",
         mb: "6",

@@ -8,8 +8,7 @@ export default defineType({
     defineField({
       name: "mainCategory",
       title: "Main Category",
-      type: "reference",
-      to: [{ type: "category" }],
+      type: "string",
     }),
     defineField({
       name: "categories",
@@ -20,7 +19,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      mainTitle: "mainCategory.title",
+      mainTitle: "mainCategory",
       mainSubtitle: "mainCategory.description",
       categories: "categories",
     },

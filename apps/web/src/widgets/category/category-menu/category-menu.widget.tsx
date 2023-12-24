@@ -1,4 +1,4 @@
-import getCategoryListApi from "@/entities/category/api/get-category-list.api";
+import getCategoryListApi from "@/entities/category/api/get-category-list.cache.api";
 import { css } from "@styled-system/css";
 import { vstack } from "@styled-system/patterns";
 import SingleCategory from "./single-category";
@@ -27,11 +27,12 @@ export default async function CategoryMenuWidget({ slug }: Props) {
               <ul className={css({ ml: "4" })}>
                 {categoryList.categories.map((category) => {
                   return (
-                    <SingleCategory
-                      category={category}
-                      key={category._id}
-                      isActive={slug === category.slug.current}
-                    />
+                    <li key={category._id}>
+                      <SingleCategory
+                        category={category}
+                        isActive={slug === category.slug.current}
+                      />
+                    </li>
                   );
                 })}
               </ul>

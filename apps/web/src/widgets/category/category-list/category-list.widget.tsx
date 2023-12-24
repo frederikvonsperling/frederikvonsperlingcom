@@ -1,9 +1,9 @@
-import getCategoriesApi from "@/entities/category/api/get-categories.api";
+import getCategoriesApi from "@/entities/category/api/get-categories.api.cache";
 import CategoryItem from "@/entities/category/ui/category-item";
 import CategoryLink from "@/features/category/category-link";
 import { vstack } from "@styled-system/patterns";
 
-export default async function CategoryList() {
+export default async function CategoryListWidget() {
   const categoriesResponse = await getCategoriesApi();
 
   if (categoriesResponse.isErr()) {

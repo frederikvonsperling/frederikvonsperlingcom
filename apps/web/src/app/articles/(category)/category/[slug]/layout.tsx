@@ -1,3 +1,4 @@
+import CategoryListWidget from "@/widgets/category/category-list/category-list.widget";
 import CategoryMenuWidget from "@/widgets/category/category-menu/category-menu.widget";
 import { css } from "@styled-system/css";
 import { hstack } from "@styled-system/patterns";
@@ -25,7 +26,7 @@ export default function Layout({ children, params }: Props) {
           </Heading>
 
           <Suspense fallback={<p>Getting categories</p>}>
-            <CategoryMenuWidget slug={params.slug} />
+            <CategoryListWidget />
           </Suspense>
         </div>
 

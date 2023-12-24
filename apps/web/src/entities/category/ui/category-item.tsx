@@ -1,5 +1,5 @@
-import { css } from "@styled-system/css";
 import { CategoryModel } from "../model/category.model";
+import Badge from "@ui/components/badge/badge";
 
 type Props = {
   category: CategoryModel;
@@ -7,13 +7,5 @@ type Props = {
 };
 
 export default function CategoryItem({ category, isActive }: Props) {
-  return (
-    <div
-      data-category-id={category._id}
-      className={css({ fontFamily: "body" })}
-      style={isActive ? { fontWeight: "bold" } : undefined}
-    >
-      {category.title}
-    </div>
-  );
+  return <Badge data-category-id={category._id}>{category.title}</Badge>;
 }

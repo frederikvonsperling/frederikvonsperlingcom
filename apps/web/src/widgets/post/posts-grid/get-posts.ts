@@ -1,4 +1,4 @@
-import getRelatedCategories from "@/entities/category/api/get-related-categories";
+import getRelatedCategories from "@/entities/category/api/get-related-categories.cache";
 import getPostsByCategoryApi from "@/entities/post/api/get-posts-by-category.api";
 import getPostsApi from "@/entities/post/api/get-posts.api";
 import { err } from "neverthrow";
@@ -14,21 +14,9 @@ export async function getPosts({ slug }: Props) {
     return postsResponse;
   }
 
-  const categories = await getRelatedCategories({
-    params: { slug },
-  });
-
-  if (categories.isErr()) {
-    return err(categories.error);
-  }
-
-  const slugs = getCategorySlugsFromCategories({
-    categories: categories.value,
-  });
-
   const postResponse = await getPostsByCategoryApi({
     params: {
-      slugs,
+      slugs: [slug],
     },
   });
 

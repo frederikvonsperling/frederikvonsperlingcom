@@ -31,29 +31,11 @@ export default function CodeBlock({
         pos: "relative",
       })}
     >
-      {/* <div
-        className={css({
-          pos: "absolute",
-          top: "-4",
-          perspectiveOrigin: "bottom",
-          textAlign: "right",
-          right: 4,
-          color: "white",
-          fontFamily: "code",
-          fontWeight: 600,
-          fontSize: 14,
-          opacity: 0.5,
-          bg: "darkGray",
-        })}
-      >
-        {language}
-      </div> */}
       <SyntaxHighlighter
         showLineNumbers={true}
         language={"typescript"}
-        style={styles?.tomorrowNightBlue}
+        style={styles.stackoverflowDark}
         customStyle={{
-          background: "#16171a",
           paddingLeft: 20,
           paddingRight: 20,
           paddingTop: 20,
@@ -62,7 +44,7 @@ export default function CodeBlock({
         codeTagProps={{
           style: {
             fontSize: 16,
-            lineHeight: "1.6em",
+            lineHeight: "normal",
             letterSpacing: "-0.05em",
             fontWeight: 400,
             fontFamily: "var(--font-family-source-code-pro)",
@@ -71,6 +53,7 @@ export default function CodeBlock({
       >
         {children}
       </SyntaxHighlighter>
+
       <button
         onClick={handleCopy}
         className={css({

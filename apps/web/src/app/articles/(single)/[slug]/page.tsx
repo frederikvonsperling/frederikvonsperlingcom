@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import getPost from "@/entities/post/api/get-post.api";
-import SinglePostPage from "@/pages/post/single-post/single-post.page";
+import SinglePostPage from "@/page-views/post/single-post/single-post.page";
 
 type Props = {
   params: { slug: string };

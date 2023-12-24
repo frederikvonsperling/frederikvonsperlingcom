@@ -1,4 +1,4 @@
-import PostsPage from "@/pages/post/posts/posts.page";
+import PostsPage from "@/page-views/post/posts/posts.page";
 
 type Props = {
   params: {

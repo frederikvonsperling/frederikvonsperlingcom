@@ -1,4 +1,3 @@
-import CategoryMenuWidget from "@/widgets/category/category-menu/category-menu.widget";
 import PostGridWidget from "@/widgets/post/posts-grid/posts-grid.widget";
 import { css } from "@styled-system/css";
 import { hstack } from "@styled-system/patterns";

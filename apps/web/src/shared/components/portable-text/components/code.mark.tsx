@@ -10,7 +10,8 @@ export default function CodeMark({
         display: "inline-block",
         bg: "darkGray",
         fontFamily: "code",
-        fontSize: "md",
+        fontSize: "sm",
+        lineHeight: "snug",
         px: "1",
       })}
     >

@@ -1,7 +1,6 @@
 import PostNavWidget from "@/widgets/post/post-nav/post-nav.widget";
 import { css } from "@styled-system/css";
 import { hstack } from "@styled-system/patterns";
-import Heading from "@ui/components/heading";
 
 type Props = {
   params: { slug: string };
@@ -23,7 +22,7 @@ export default function Layout({ children, params }: Props) {
             <PostNavWidget slug={params.slug} />
           </div>
         </div>
-        <article>{children}</article>
+        <article className={css({ minW: "1" })}>{children}</article>
       </div>
     </div>
   );
