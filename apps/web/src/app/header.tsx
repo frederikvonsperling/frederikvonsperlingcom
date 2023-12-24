@@ -21,21 +21,11 @@ export const Header = ({}: Props) => {
       })}
     >
       <div className={css({ flex: "1", fontWeight: "bold" })}>
-        Frederik von Sperling
+        <a href="/">Frederik von Sperling</a>
       </div>
       <div
         className={hstack({ justifyContent: "center", flex: "1", gap: "8" })}
       >
-        <Link
-          className={css({
-            fontSize: "md",
-            color: "white",
-            fontWeight: "normal",
-          })}
-          href={"/"}
-        >
-          Home
-        </Link>
         <Link
           className={css({
             fontSize: "md",

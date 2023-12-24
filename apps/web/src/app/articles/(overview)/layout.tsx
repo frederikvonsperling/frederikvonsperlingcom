@@ -20,7 +20,7 @@ export default function Layout({ children, params }: Props) {
           })}
         >
           <div>
-            <Heading element="h3" size="h3" className={css({ mb: "2" })}>
+            <Heading element="h3" size="h3" className={css({ mb: "4" })}>
               Categories
             </Heading>
 
