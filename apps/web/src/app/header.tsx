@@ -1,17 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { css } from "@styled-system/css";
 import { grid, hstack } from "@styled-system/patterns";
 import Box from "@/shared/components/box";
 import { GridItem } from "@styled-system/jsx";
 
-type Props = {};
-
-export const Header = ({}: Props) => {
-  const pathname = usePathname();
-
+export const Header = () => {
   return (
     <div
       className={grid({
