@@ -20,10 +20,12 @@ export default async function Page() {
     >
       <GridItem colSpan={3}>
         <Box>
-          <p>
-            {`Hi there, I'm <b>Frederik von Sperling</b>, Frontend software
-            developer based in Copenhagen, Denmark`}
-          </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: `Hi there, I'm <b>Frederik von Sperling</b>, Frontend software
+            developer based in Copenhagen, Denmark`,
+            }}
+          />
           <a
             href="https://github.com/frederikvonsperling"
             className={css({

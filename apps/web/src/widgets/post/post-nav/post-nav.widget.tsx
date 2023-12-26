@@ -41,27 +41,14 @@ export default async function PostNavWidget({ slug }: Props) {
 
   return (
     <div>
-      <Link
-        className={css({
-          fontFamily: "body",
-          color: "white",
-          mb: "8",
-          display: "block",
-        })}
-        href="/articles"
-      >
-        Back to articles
-      </Link>
-      <div>
-        <Heading element="h3" size="h3" className={css({ mb: "4" })}>
-          Content
-        </Heading>
-        <div className={vstack({ alignItems: "flex-start", gap: "1" })}>
-          <PortableText
-            value={postResponse.value.content}
-            components={components}
-          />
-        </div>
+      <Heading element="h3" size="h3" className={css({ mb: "4" })}>
+        Content
+      </Heading>
+      <div className={vstack({ alignItems: "flex-start", gap: "1" })}>
+        <PortableText
+          value={postResponse.value.content}
+          components={components}
+        />
       </div>
     </div>
   );
