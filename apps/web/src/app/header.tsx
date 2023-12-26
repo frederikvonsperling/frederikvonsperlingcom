@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { css } from "@styled-system/css";
-import { hstack } from "@styled-system/patterns";
+import { grid, hstack } from "@styled-system/patterns";
+import Box from "@/shared/components/box";
+import { GridItem } from "@styled-system/jsx";
 
 type Props = {};
 
@@ -12,34 +14,44 @@ export const Header = ({}: Props) => {
 
   return (
     <div
-      className={hstack({
+      className={grid({
         maxW: "5xl",
         mx: "auto",
         color: "white",
+        alignItems: "stretch",
         px: "4",
-        py: "10",
+        pt: "4",
+        gap: "4",
+        columns: 12,
       })}
     >
-      <div className={css({ flex: "1", fontWeight: "bold" })}>
-        <a href="/">Frederik von Sperling</a>
-      </div>
-      <div
-        className={hstack({ justifyContent: "center", flex: "1", gap: "8" })}
-      >
-        <Link
-          className={css({
-            fontSize: "md",
-            color: "white",
-            fontWeight: "normal",
+      <GridItem colSpan={3}>
+        <Box className={css({ flex: "3", fontWeight: "bold", flexShrink: 0 })}>
+          <a href="/">Frederik von Sperling</a>
+        </Box>
+      </GridItem>
+
+      <GridItem colSpan={9}>
+        <Box
+          className={hstack({
+            justifyContent: "center",
+            flex: "9",
+            gap: "8",
+            flexShrink: 0,
           })}
-          href={"/articles"}
         >
-          Articles
-        </Link>
-      </div>
-      <div className={css({ flex: "1", textAlign: "right" })}>
-        Imagine a cool search here
-      </div>
+          <Link
+            className={css({
+              fontSize: "md",
+              color: "white",
+              fontWeight: "normal",
+            })}
+            href={"/articles"}
+          >
+            Articles
+          </Link>
+        </Box>
+      </GridItem>
     </div>
   );
 };

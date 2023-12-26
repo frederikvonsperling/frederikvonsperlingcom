@@ -1,49 +1,52 @@
 import CategoryListWidget from "@/widgets/category/category-list/category-list.widget";
-import { hstack } from "@styled-system/patterns";
+import { grid, hstack, vstack } from "@styled-system/patterns";
 import Heading from "@ui/components/heading/heading";
 import { css } from "styled-system/css";
 
 import GithubIcon from "@/shared/icons/github-icon";
+import Box from "@/shared/components/box";
+import { GridItem } from "@styled-system/jsx";
 
 export default async function Page() {
   return (
-    <div className={css({ maxW: "5xl", mx: "auto", p: "4" })}>
-      <div className={hstack({ alignItems: "stretch", gap: "8" })}>
-        <div
-          className={css({
-            flexBasis: "56",
-            flexShrink: 0,
-            flexGrow: 0,
-          })}
-        >
-          <div>
-            <p>
-              Hi there, I'm <b>Frederik von Sperling</b>, Frontend software
-              developer based in Copenhagen, Denmark
-            </p>
-            <a
-              href="https://github.com/frederikvonsperling"
-              className={css({
-                width: "8",
-                display: "block",
-                height: "8",
-                mt: "4",
-              })}
-            >
-              <GithubIcon />
-            </a>
-          </div>
-          <div className={css({ mt: "8" })}>
-            <Heading size="h3" element="h3" className={css({ mb: "4" })}>
-              Categories
-            </Heading>
-            <CategoryListWidget />
-          </div>
-        </div>
-        <article className={css({ minW: "1" })}>
-          Some articles will show here eventually
-        </article>
-      </div>
+    <div
+      className={grid({
+        gap: "4",
+        maxW: "5xl",
+        mx: "auto",
+        p: "4",
+        columns: 12,
+      })}
+    >
+      <GridItem colSpan={3}>
+        <Box>
+          <p>
+            Hi there, I'm <b>Frederik von Sperling</b>, Frontend software
+            developer based in Copenhagen, Denmark
+          </p>
+          <a
+            href="https://github.com/frederikvonsperling"
+            className={css({
+              width: "8",
+              display: "block",
+              height: "8",
+              mt: "4",
+            })}
+          >
+            <GithubIcon />
+          </a>
+        </Box>
+        <Box className={css({ mt: "4" })}>
+          <Heading size="h3" element="h3" className={css({ mb: "4" })}>
+            Categories
+          </Heading>
+          <CategoryListWidget />
+        </Box>
+      </GridItem>
+
+      <GridItem colSpan={9}>
+        <Box className={css({})}>Some articles will show here eventually</Box>
+      </GridItem>
     </div>
   );
 }

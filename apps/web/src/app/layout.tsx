@@ -1,10 +1,10 @@
 import "./global.css";
 import { sourceCodePro, ibmPlexSans, ibmPlexSansCondensed } from "./fonts";
-import { MaintenanceMode } from "./maintenance-mode";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { css } from "@styled-system/css";
 import { Metadata } from "next";
+import "@/shared/lib/env-schema";
 
 export const metadata: Metadata = {
   title: {
@@ -20,7 +20,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       className={`${ibmPlexSans.variable} ${ibmPlexSansCondensed.variable} ${sourceCodePro.variable}`}
       style={{ backgroundColor: "#000000" }}
     >
-      <body className={css({ w: "full", h: "full", minH: "screen" })}>
+      <body
+        className={css({
+          w: "full",
+          h: "full",
+          minH: "screen",
+        })}
+      >
         <Header />
         {children}
         <Footer />

@@ -1,8 +1,5 @@
-import getRelatedCategories from "@/entities/category/api/get-related-categories.cache";
-import getPostsByCategoryApi from "@/entities/post/api/get-posts-by-category.api";
-import getPostsApi from "@/entities/post/api/get-posts.api";
-import { err } from "neverthrow";
-import getCategorySlugsFromCategories from "./get-category-slugs-from-categories";
+import getPostsByCategoryCacheApi from "@/entities/post/api/get-posts-by-category.cache.api";
+import getPostsCacheApi from "@/entities/post/api/get-posts.cache.api";
 
 type Props = {
   slug?: string;
@@ -10,11 +7,11 @@ type Props = {
 
 export async function getPosts({ slug }: Props) {
   if (!slug) {
-    const postsResponse = await getPostsApi();
+    const postsResponse = await getPostsCacheApi();
     return postsResponse;
   }
 
-  const postResponse = await getPostsByCategoryApi({
+  const postResponse = await getPostsByCategoryCacheApi({
     params: {
       slugs: [slug],
     },

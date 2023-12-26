@@ -1,4 +1,4 @@
-import getPostApi from "@/entities/post/api/get-post.api";
+import getPostApi from "@/entities/post/api/get-post-by-slug.cache.api";
 import {
   PortableText,
   PortableTextComponentProps,

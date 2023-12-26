@@ -1,7 +1,7 @@
 import { css } from "@styled-system/css";
 import Badge from "@ui/components/badge";
 import PortableText from "@/shared/components/portable-text";
-import getPostApi from "@/entities/post/api/get-post.api";
+import getPostApi from "@/entities/post/api/get-post-by-slug.cache.api";
 
 type Props = {
   slug: string;
@@ -50,7 +50,7 @@ export default async function SinglePostWidget({ slug }: Props) {
       <footer>
         <div className={css({ mt: "8" })}>
           <div className={css({ display: "flex", gap: "2" })}>
-            {post.categories.map((category, index) => {
+            {post.tags?.map((category) => {
               return <Badge key={category._id}>{category.title}</Badge>;
             })}
           </div>

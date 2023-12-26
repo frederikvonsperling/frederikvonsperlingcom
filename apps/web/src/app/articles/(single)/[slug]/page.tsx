@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import getPost from "@/entities/post/api/get-post.api";
+import getPost from "@/entities/post/api/get-post-by-slug.cache.api";
 import SinglePostPage from "@/page-views/post/single-post/single-post.page";
 
 type Props = {

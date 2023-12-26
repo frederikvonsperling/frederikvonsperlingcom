@@ -28,13 +28,15 @@ export const postSchema = entrySchema.extend({
   }),
   excerpt: z.string(),
   content: z.any(),
-  categories: z.array(
-    z.object({
-      _id: z.string(),
-      _type: z.literal("category"),
-      title: z.string(),
-    })
-  ),
+  tags: z
+    .array(
+      z.object({
+        _id: z.string(),
+        _type: z.literal("category"),
+        title: z.string(),
+      })
+    )
+    .nullable(),
   _createdAt: z.string(),
   _updatedAt: z.string(),
 });

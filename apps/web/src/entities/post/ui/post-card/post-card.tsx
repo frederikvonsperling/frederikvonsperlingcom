@@ -13,7 +13,7 @@ export default function PostCard({ post }: Props) {
     <Card
       title={post.title}
       excerpt={post.excerpt}
-      categories={post.categories.map((category) => category.title)}
+      categories={post.tags?.map((category) => category.title) ?? []}
     />
   );
 }

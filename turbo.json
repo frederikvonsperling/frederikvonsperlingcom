@@ -1,6 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["SANITY_API_TOKEN", "MAINTENANCE_MODE"],
+  "globalEnv": [
+    "SANITY_API_TOKEN",
+    "MAINTENANCE_MODE",
+    "GET_UNPUBLISHED_ENTRIES"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
