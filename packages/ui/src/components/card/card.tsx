@@ -18,14 +18,14 @@ export default function Card({ title, excerpt, categories, className }: Props) {
       <p
         className={css({
           fontFamily: "body",
-          fontSize: 14,
-          fontWeight: 400,
-          mt: 2,
+          fontSize: "lg",
+          fontWeight: "normal",
+          mt: "2",
         })}
       >
         {excerpt}
       </p>
-      <div className={css({ display: "flex", gap: 2 })}>
+      <div className={css({ display: "flex", gap: "2" })}>
         {categories.map((category, index) => {
           return <Badge key={index}>{category}</Badge>;
         })}

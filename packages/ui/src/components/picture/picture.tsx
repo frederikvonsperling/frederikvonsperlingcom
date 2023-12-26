@@ -18,7 +18,7 @@ export default function Picture({ srcSets, sizes = "100vw" }: Props) {
       className={css({
         display: "block",
         bg: "gray.100",
-        aspectRatio: 16 / 9,
+        aspectRatio: "wide",
         width: "full",
         overflow: "hidden",
         rounded: "sm",

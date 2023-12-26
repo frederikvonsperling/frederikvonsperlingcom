@@ -27,7 +27,7 @@ export default function CodeBlock({
   return (
     <div
       className={css({
-        mb: 8,
+        mb: "8",
         pos: "relative",
       })}
     >
@@ -59,12 +59,12 @@ export default function CodeBlock({
         className={css({
           fontFamily: "body",
           pos: "absolute",
-          bottom: 2,
-          right: 4,
+          bottom: "2",
+          right: "4",
           color: "white",
-          px: 2,
-          fontSize: 14,
-          fontWeight: 600,
+          px: "2",
+          fontSize: "md",
+          fontWeight: "bold",
           rounded: "sm",
           cursor: "pointer",
         })}

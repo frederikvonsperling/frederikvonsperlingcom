@@ -17,7 +17,7 @@ const headingStyles = cva({
     size: {
       h1: { fontSize: "5xl", fontWeight: "normal" },
       h2: { fontSize: "4xl", fontWeight: "extrabold" },
-      h3: { fontSize: "xl", fontWeight: "600" },
+      h3: { fontSize: "xl", fontWeight: "bold" },
       h4: {},
       h5: {},
       h6: {},

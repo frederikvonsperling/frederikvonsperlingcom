@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@8.11.0",
   "scripts": {
-    "build": "turbo build",
+    "build": "rm -rf apps/web/.next && turbo build",
     "dev": "rm -rf apps/web/.next && turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

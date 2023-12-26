@@ -12,14 +12,12 @@ export default function Badge({ children }: Props) {
         rounded: "sm",
         fontFamily: "code",
         backgroundColor: "transparent",
-        fontSize: 12,
-        fontWeight: 600,
-        borderWidth: "1px",
-        borderStyle: "solid",
-        borderColor: "offWhite.100",
-        px: 1,
+        fontSize: "md",
+        fontWeight: "bold",
+        border: "offWhite",
+        px: "1",
         lineHeight: "none",
-        py: 0.5,
+        py: "0.5",
       })}
     >
       {children}
