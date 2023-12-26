@@ -21,8 +21,8 @@ export default async function Page() {
       <GridItem colSpan={3}>
         <Box>
           <p>
-            Hi there, I'm <b>Frederik von Sperling</b>, Frontend software
-            developer based in Copenhagen, Denmark
+            {`Hi there, I'm <b>Frederik von Sperling</b>, Frontend software
+            developer based in Copenhagen, Denmark`}
           </p>
           <a
             href="https://github.com/frederikvonsperling"
