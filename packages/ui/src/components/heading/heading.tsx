@@ -1,7 +1,7 @@
+import { RecipeVariantProps } from "@pandacss/types";
 import { cva, cx } from "@styled-system/css";
-import type { HeadingVariant } from "@styled-system/recipes";
 
-type Props = HeadingVariant & {
+type Props = HeadingVariants & {
   children: React.ReactNode;
   element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
@@ -27,6 +27,8 @@ const headingStyles = cva({
     size: "h1",
   },
 });
+
+type HeadingVariants = RecipeVariantProps<typeof headingStyles>;
 
 export default function Heading({ children, element, size, className }: Props) {
   const Component = element;

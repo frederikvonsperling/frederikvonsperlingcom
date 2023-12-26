@@ -9,13 +9,4 @@ export default defineConfig({
   jsxFramework: "react",
   strictTokens: true,
   outdir: "styled-system",
-  staticCss: {
-    recipes: {
-      heading: [
-        {
-          size: ["h1", "h2", "h3"],
-        },
-      ],
-    },
-  },
 }) satisfies Config;
