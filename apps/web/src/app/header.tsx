@@ -26,8 +26,10 @@ export const Header = ({}: Props) => {
       })}
     >
       <GridItem colSpan={3}>
-        <Box className={css({ flex: "3", fontWeight: "bold", flexShrink: 0 })}>
-          <a href="/">Frederik von Sperling</a>
+        <Box>
+          <a href="/" className={css({ fontWeight: "bold" })}>
+            Frederik von Sperling
+          </a>
         </Box>
       </GridItem>
 
@@ -35,9 +37,6 @@ export const Header = ({}: Props) => {
         <Box
           className={hstack({
             justifyContent: "center",
-            flex: "9",
-            gap: "8",
-            flexShrink: 0,
           })}
         >
           <Link
