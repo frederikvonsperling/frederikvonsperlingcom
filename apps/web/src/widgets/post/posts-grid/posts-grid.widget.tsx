@@ -1,10 +1,6 @@
 import PostCard from "@/entities/post/ui/post-card/post-card";
-import PostLink from "@/features/post/post-link/post-link";
 import { css } from "@styled-system/css";
 import { getPosts } from "./get-posts";
-import { vstack } from "@styled-system/patterns";
-import Box from "@/shared/components/box";
-import Link from "next/link";
 
 type Props = {
   slug?: string;
