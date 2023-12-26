@@ -19,6 +19,7 @@ export default async function PostsPage({ slug }: Props) {
       ))}
     </Grid>
   );
+
   return (
     <div className={css({ maxW: "5xl", mx: "auto", w: "full" })}>
       <div className={hstack({ alignItems: "stretch", gap: "8", w: "full" })}>

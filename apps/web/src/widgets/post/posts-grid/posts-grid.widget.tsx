@@ -4,6 +4,7 @@ import { css } from "@styled-system/css";
 import { getPosts } from "./get-posts";
 import { vstack } from "@styled-system/patterns";
 import Box from "@/shared/components/box";
+import Link from "next/link";
 
 type Props = {
   slug?: string;
@@ -21,11 +22,7 @@ export default async function PostGridWidget({ slug }: Props) {
       className={css({ display: "grid", gridTemplateColumns: "3", gap: "4" })}
     >
       {postsResponse.value.map((post) => (
-        <Box key={post._id}>
-          <PostLink post={post}>
-            <PostCard post={post} />
-          </PostLink>
-        </Box>
+        <PostCard post={post} key={post._id} />
       ))}
     </div>
   );

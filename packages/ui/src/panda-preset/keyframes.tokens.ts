@@ -6,4 +6,9 @@ export default {
       backgroundPositionX: "-400%",
     },
   },
+  hoverShine: {
+    to: {
+      backgroundPosition: "10%",
+    },
+  },
 } satisfies CssKeyframes;

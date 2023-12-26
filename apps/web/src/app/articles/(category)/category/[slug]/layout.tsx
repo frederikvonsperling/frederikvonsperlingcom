@@ -1,9 +1,7 @@
 import Box from "@/shared/components/box";
 import CategoryListWidget from "@/widgets/category/category-list/category-list.widget";
-import CategoryMenuWidget from "@/widgets/category/category-menu/category-menu.widget";
 import { css } from "@styled-system/css";
 import { Grid, GridItem } from "@styled-system/jsx";
-import { hstack } from "@styled-system/patterns";
 import Heading from "@ui/components/heading";
 import { Suspense } from "react";
 

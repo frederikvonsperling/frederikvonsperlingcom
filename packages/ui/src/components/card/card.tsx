@@ -1,4 +1,4 @@
-import { css } from "@styled-system/css";
+import { css, cx } from "@styled-system/css";
 import Badge from "@ui/components/badge/badge";
 import Heading from "@ui/components/heading";
 
@@ -6,11 +6,12 @@ type Props = {
   title: string;
   excerpt: string;
   categories: string[];
+  className?: string;
 };
 
-export default function Card({ title, excerpt, categories }: Props) {
+export default function Card({ title, excerpt, categories, className }: Props) {
   return (
-    <div className={css({ color: "white" })}>
+    <div className={cx(css({ color: "white" }), className)}>
       <Heading size="h3" element="h2">
         {title}
       </Heading>
@@ -19,7 +20,6 @@ export default function Card({ title, excerpt, categories }: Props) {
           fontFamily: "body",
           fontSize: 14,
           fontWeight: 400,
-          mb: 4,
           mt: 2,
         })}
       >
