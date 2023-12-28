@@ -14,7 +14,7 @@ const cardStyles = cva({
     p: "4",
     backgroundColor: "offWhite.50",
     borderRadius: "lg",
-    border: "offWhite",
+    border: "subtle",
   },
   variants: {
     isLoading: {

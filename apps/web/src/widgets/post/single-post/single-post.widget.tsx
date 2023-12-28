@@ -2,6 +2,8 @@ import { css } from "@styled-system/css";
 import Badge from "@ui/components/badge";
 import PortableText from "@/shared/components/portable-text";
 import getPostApi from "@/entities/post/api/get-post-by-slug.cache.api";
+import Box from "@/shared/components/box";
+import { Grid } from "@styled-system/jsx";
 
 type Props = {
   slug: string;
@@ -17,35 +19,40 @@ export default async function SinglePostWidget({ slug }: Props) {
   const post = postResponse.value;
 
   return (
-    <div className={css({ maxW: "3xl", mx: "auto", px: "4" })}>
-      <header className={css({ mb: "8" })}>
-        <p className={css({ fontFamily: "code", mb: "4" })}>
-          Last updated: {new Date(post._updatedAt).toLocaleDateString("en-US")}
-        </p>
-        <h1
-          className={css({
-            fontFamily: "heading",
-            fontSize: "5xl",
-            mb: "2",
-            fontWeight: "extrabold",
-            color: "white",
-            lineHeight: "tight",
-          })}
-        >
-          {post.title}
-        </h1>
-        <p
-          className={css({
-            fontFamily: "body",
-            fontWeight: "normal",
-            fontSize: "2xl",
-          })}
-        >
-          {post.excerpt}
-        </p>
-      </header>
+    <Grid gap={"4"}>
+      <Box>
+        <header>
+          <p className={css({ fontFamily: "code", mb: "4" })}>
+            Last updated:{" "}
+            {new Date(post._updatedAt).toLocaleDateString("en-US")}
+          </p>
+          <h1
+            className={css({
+              fontFamily: "heading",
+              fontSize: "5xl",
+              mb: "2",
+              fontWeight: "extrabold",
+              color: "white",
+              lineHeight: "tight",
+            })}
+          >
+            {post.title}
+          </h1>
+          <p
+            className={css({
+              fontFamily: "body",
+              fontWeight: "normal",
+              fontSize: "2xl",
+            })}
+          >
+            {post.excerpt}
+          </p>
+        </header>
+      </Box>
       <main>
-        <PortableText content={post.content} />
+        <Box>
+          <PortableText content={post.content} />
+        </Box>
       </main>
       <footer>
         <div className={css({ mt: "8" })}>
@@ -56,6 +63,6 @@ export default async function SinglePostWidget({ slug }: Props) {
           </div>
         </div>
       </footer>
-    </div>
+    </Grid>
   );
 }

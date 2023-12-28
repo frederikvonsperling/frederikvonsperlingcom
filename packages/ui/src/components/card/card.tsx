@@ -18,7 +18,7 @@ export default function Card({ title, excerpt, categories, className }: Props) {
       <p
         className={css({
           fontFamily: "body",
-          fontSize: "lg",
+          fontSize: "md",
           fontWeight: "normal",
           mt: "2",
         })}
