@@ -1,26 +1,11 @@
-import { css } from "@styled-system/css";
+import { cx } from "@styled-system/css";
+import badgeStyles from "./badge.styles";
 
 export type Props = {
   children: string;
-};
+  className?: string;
+} & React.HTMLAttributes<HTMLSpanElement>;
 
-export default function Badge({ children }: Props) {
-  return (
-    <p
-      className={css({
-        display: "block",
-        rounded: "sm",
-        fontFamily: "code",
-        backgroundColor: "transparent",
-        fontSize: "xs",
-        border: "light",
-        fontWeight: "semibold",
-        px: "1",
-        lineHeight: "none",
-        py: "0.5",
-      })}
-    >
-      {children}
-    </p>
-  );
+export default function Badge({ children, className }: Props) {
+  return <span className={cx(badgeStyles, className)}>{children}</span>;
 }

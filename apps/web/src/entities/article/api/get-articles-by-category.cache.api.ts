@@ -7,7 +7,7 @@ import { cache } from "react";
 import { ENTRY_STATUS } from "@/shared/lib/constants";
 
 const query = `
-*[_type == 'article' && count((tags[]->slug.current)[@ in $slugs]) > 0 && status == $status] {
+*[_type == 'article' && count((tags[]->slug.current)[@ in $slugs]) > 0] {
     content,
     credits,
     "tags": tags[]->{
@@ -38,10 +38,8 @@ type Params = {
 async function getArticlesByCategoryApi({ params }: Params) {
   const articlesResponse = await ResultAsync.fromPromise(
     sanityClient
-      .fetch(query, { status: ENTRY_STATUS, ...params })
-      .then((articles) => {
-        return z.array(articleSchema).parse(articles);
-      }),
+      .fetch(query, params)
+      .then((articles) => z.array(articleSchema).parse(articles)),
     (error) => intoError(error, "Something went wrong")
   );
 

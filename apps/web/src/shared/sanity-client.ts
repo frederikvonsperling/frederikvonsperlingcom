@@ -11,6 +11,7 @@ export const sanityClient = createClient({
   useCdn: false,
   apiVersion: "v2021-10-21",
   token: process.env.SANITY_API_TOKEN,
+  perspective: "published",
 });
 
 export const imageUrlBuilder = sanityImageUrlBuilder(sanityClient);

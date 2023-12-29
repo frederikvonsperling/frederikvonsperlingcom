@@ -7,7 +7,7 @@ import { ENTRY_STATUS } from "@/shared/lib/constants";
 import { articleSchema } from "../model/article.model";
 
 const query = `
-*[_type == 'article' && status == $status] {
+*[_type == 'article'] {
     _type,
     content,
     credits,

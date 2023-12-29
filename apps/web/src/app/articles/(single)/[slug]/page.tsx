@@ -1,21 +1,23 @@
 import { Metadata } from "next";
 
-import getPost from "@/entities/article/api/get-article-by-slug.cache.api";
 import SingleArticlePage from "@/page-views/article/single-article/single-article.page";
+import getArticleBySlugCacheApi from "@/entities/article/api/get-article-by-slug.cache.api";
 
 type Props = {
   params: { slug: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const postsResponse = await getPost({ params: { slug: params.slug } });
+  const articleResponse = await getArticleBySlugCacheApi({
+    params: { slug: params.slug },
+  });
 
-  if (postsResponse.isErr()) {
-    throw new Error(`Error getting post with slug ${params.slug}`);
+  if (articleResponse.isErr()) {
+    throw new Error(`Error getting article with ${params.slug}`);
   }
 
   return {
-    title: postsResponse.value.title,
+    title: articleResponse.value.title,
   };
 }
 
