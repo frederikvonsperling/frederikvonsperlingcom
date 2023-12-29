@@ -1,5 +1,4 @@
 import Box from "@/shared/components/box";
-import ArticleCommentWidget from "@/widgets/article/article-comment/article-comment.widget";
 import ArticlesGridWidget from "@/widgets/article/articles-grid/articles-grid.widget";
 import { css } from "@styled-system/css";
 import { Grid } from "@styled-system/jsx";
