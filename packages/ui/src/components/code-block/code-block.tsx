@@ -1,17 +1,21 @@
 "use client";
 
+import { hstack } from "@styled-system/patterns";
+import { HStack } from "@styled-system/jsx";
+import tokens from "@ui/panda-preset/tokens";
 import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import * as styles from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { css } from "styled-system/css";
+import { match } from "ts-pattern";
 
-export default function CodeBlock({
-  language,
-  children,
-}: {
+type Props = {
   language: string;
   children: string;
-}) {
+  filename: string;
+};
+
+export default function CodeBlock({ language, children, filename }: Props) {
   const [hasCopied, setHasCopied] = useState(false);
 
   const handleCopy = () => {
@@ -24,13 +28,44 @@ export default function CodeBlock({
     }, 2000);
   };
 
+  const icons = match(language)
+    .with("tsx", () => (
+      <>
+        <i className="devicon-react-plain" />
+      </>
+    ))
+    .otherwise(() => null);
+
   return (
     <div
       className={css({
         mb: "8",
         pos: "relative",
+        border: "subtle",
+        borderRadius: "md",
       })}
     >
+      <HStack
+        className={css({ py: "2", px: "4", justifyContent: "space-between" })}
+      >
+        <p className={hstack({})}>
+          {icons}
+          <span>{filename}</span>
+        </p>
+        <button
+          onClick={handleCopy}
+          className={css({
+            fontFamily: "body",
+            color: "white",
+            fontSize: "sm",
+            fontWeight: "normal",
+            rounded: "sm",
+            cursor: "pointer",
+          })}
+        >
+          {hasCopied ? "Copied!" : "Copy"}
+        </button>
+      </HStack>
       <SyntaxHighlighter
         showLineNumbers={true}
         language={"typescript"}
@@ -40,6 +75,7 @@ export default function CodeBlock({
           paddingRight: 20,
           paddingTop: 20,
           paddingBottom: 20,
+          background: tokens.colors.offWhite[50].value,
         }}
         codeTagProps={{
           style: {
@@ -53,24 +89,6 @@ export default function CodeBlock({
       >
         {children}
       </SyntaxHighlighter>
-
-      <button
-        onClick={handleCopy}
-        className={css({
-          fontFamily: "body",
-          pos: "absolute",
-          bottom: "2",
-          right: "4",
-          color: "white",
-          px: "2",
-          fontSize: "md",
-          fontWeight: "bold",
-          rounded: "sm",
-          cursor: "pointer",
-        })}
-      >
-        {hasCopied ? "Copied!" : "Copy"}
-      </button>
     </div>
   );
 }

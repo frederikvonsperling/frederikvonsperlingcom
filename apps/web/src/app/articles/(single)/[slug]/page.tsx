@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
-import getPost from "@/entities/post/api/get-post-by-slug.cache.api";
-import SinglePostPage from "@/page-views/post/single-post/single-post.page";
+import getPost from "@/entities/article/api/get-article-by-slug.cache.api";
+import SingleArticlePage from "@/page-views/article/single-article/single-article.page";
 
 type Props = {
   params: { slug: string };
@@ -20,5 +20,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  return <SinglePostPage slug={params.slug} />;
+  return <SingleArticlePage slug={params.slug} />;
 }

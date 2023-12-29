@@ -1,5 +1,5 @@
-import PostsPage from "@/page-views/post/posts/posts.page";
+import ArticlesPage from "@/page-views/article/article/articles.page";
 
-export default async function Posts() {
-  return <PostsPage />;
+export default async function Articles() {
+  return <ArticlesPage />;
 }

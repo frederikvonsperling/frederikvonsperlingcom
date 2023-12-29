@@ -2,7 +2,6 @@ import Box from "@/shared/components/box";
 import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
 import { css } from "@styled-system/css";
 import { Grid, GridItem } from "@styled-system/jsx";
-import { grid, hstack } from "@styled-system/patterns";
 import Heading from "@ui/components/heading";
 import { Suspense } from "react";
 

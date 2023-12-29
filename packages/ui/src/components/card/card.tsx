@@ -21,11 +21,13 @@ export default function Card({ title, excerpt, categories, className }: Props) {
           fontSize: "md",
           fontWeight: "normal",
           mt: "2",
+          // @ts-ignore find way to add tokens for line-clamp with strict tokens
+          lineClamp: 3,
         })}
       >
         {excerpt}
       </p>
-      <div className={css({ display: "flex", gap: "2" })}>
+      <div className={css({ display: "flex", gap: "2", mt: "4" })}>
         {categories.map((category, index) => {
           return <Badge key={index}>{category}</Badge>;
         })}

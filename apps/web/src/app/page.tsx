@@ -1,4 +1,4 @@
-import CategoryListWidget from "@/widgets/category/category-list/category-list.widget";
+import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
 import { grid, hstack, vstack } from "@styled-system/patterns";
 import Heading from "@ui/components/heading/heading";
 import { css } from "styled-system/css";

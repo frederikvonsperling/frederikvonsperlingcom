@@ -1,8 +1,7 @@
 import Box from "@/shared/components/box/box";
-import PostNavWidget from "@/widgets/post/post-nav/post-nav.widget";
+import PostNavWidget from "@/widgets/article/article-nav/article-nav.widget";
 import { css } from "@styled-system/css";
 import { Grid, GridItem } from "@styled-system/jsx";
-import { hstack } from "@styled-system/patterns";
 import Link from "next/link";
 
 type Props = {

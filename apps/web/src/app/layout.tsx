@@ -20,11 +20,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       className={`${ibmPlexSans.variable} ${ibmPlexSansCondensed.variable} ${sourceCodePro.variable}`}
       style={{ backgroundColor: "#000000" }}
     >
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+        />
+      </head>
       <body
         className={css({
           w: "full",
           h: "full",
           minH: "screen",
+          my: "4",
         })}
       >
         <Header />

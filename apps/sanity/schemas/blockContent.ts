@@ -69,6 +69,9 @@ export default defineType({
       type: "code",
       name: "code-snippet",
       title: "Code snippet",
+      options: {
+        withFilename: true,
+      },
     }),
   ],
 });
