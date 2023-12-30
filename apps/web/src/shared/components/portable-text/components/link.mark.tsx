@@ -1,5 +1,6 @@
-import { css } from "@styled-system/css";
 import { PortableTextMarkComponentProps } from "@portabletext/react";
+
+import { css } from "@styled-system/css";
 
 export default function LinkMark({
   children,

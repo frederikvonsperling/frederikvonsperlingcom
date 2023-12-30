@@ -1,14 +1,9 @@
 import SingleArticleWidget from "@/widgets/article/single-article/single-article.widget";
-import { Grid } from "@styled-system/jsx";
 
-type Props = {
+type Properties = {
   slug: string;
 };
 
-export default async function SingleArticlePage({ slug }: Props) {
-  return (
-    <Grid>
-      <SingleArticleWidget slug={slug} />
-    </Grid>
-  );
+export default async function SingleArticlePage({ slug }: Properties) {
+  return <SingleArticleWidget slug={slug} />;
 }

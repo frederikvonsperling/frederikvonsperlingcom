@@ -1,14 +1,16 @@
 import { PortableText as PortableTextComponent } from "@portabletext/react";
+
 import components from "./components";
 
-type Props = {
+type Properties = {
   /**
    * TODO: Type the sanity content
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content: any;
 };
 
-export default function PortableText({ content }: Props) {
+export default function PortableText({ content }: Properties) {
   return (
     <PortableTextComponent
       value={content}

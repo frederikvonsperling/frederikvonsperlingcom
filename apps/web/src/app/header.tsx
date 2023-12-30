@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { css, cva } from "@styled-system/css";
-import { grid, hstack } from "@styled-system/patterns";
-import Box from "@/shared/components/box";
-import { Grid, GridItem } from "@styled-system/jsx";
 import { usePathname } from "next/navigation";
+
+import { css, cva } from "@styled-system/css";
+import { Grid, GridItem } from "@styled-system/jsx";
+import { hstack } from "@styled-system/patterns";
+
+import Box from "@/shared/components/box";
 
 const navItemStyles = cva({
   base: {
@@ -39,7 +41,7 @@ export const Header = () => {
       columns={12}
     >
       <GridItem colSpan={3}>
-        <Box>
+        <Box className={css({ height: "full" })}>
           <a href="/" className={css({ fontWeight: "bold" })}>
             Frederik von Sperling
           </a>
@@ -50,6 +52,7 @@ export const Header = () => {
         <Box
           className={hstack({
             justifyContent: "center",
+            height: "full",
           })}
         >
           <Link

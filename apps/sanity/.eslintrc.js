@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@sanity/eslint-config-studio', 'custom'],
-}
+  extends: ["@sanity/eslint-config-studio", "custom"],
+};

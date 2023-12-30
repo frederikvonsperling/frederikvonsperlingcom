@@ -1,11 +1,12 @@
 import { PortableTextComponents } from "@portabletext/react";
-import NormalBlock from "./normal.block";
-import H2Block from "./h2.block";
-import LinkMark from "./link.mark";
-import CodeSnippetType from "./code-snippet.type";
-import ImageType from "./image.type";
+
 import CodeMark from "./code.mark";
+import CodeSnippetType from "./code-snippet.type";
+import H2Block from "./h2.block";
 import H3Block from "./h3.block";
+import ImageType from "./image.type";
+import LinkMark from "./link.mark";
+import NormalBlock from "./normal.block";
 
 export default {
   block: {

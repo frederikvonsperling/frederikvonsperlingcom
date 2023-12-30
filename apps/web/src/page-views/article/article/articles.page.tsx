@@ -1,16 +1,20 @@
-import Box from "@/shared/components/box";
-import ArticlesGridWidget from "@/widgets/article/articles-grid/articles-grid.widget";
+import { Suspense } from "react";
+
 import { css } from "@styled-system/css";
 import { Grid } from "@styled-system/jsx";
 import { hstack } from "@styled-system/patterns";
-import Heading from "@ui/components/heading";
-import { Suspense } from "react";
 
-type Props = {
+import Heading from "@ui/components/heading";
+
+import Box from "@/shared/components/box";
+
+import ArticlesGridWidget from "@/widgets/article/articles-grid/articles-grid.widget";
+
+type Properties = {
   slug?: string;
 };
 
-export default async function ArticlesPage({ slug }: Props) {
+export default async function ArticlesPage({ slug }: Properties) {
   const Loading = () => (
     <Box isLoading className={css({ height: "56", w: "full" })} />
   );

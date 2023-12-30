@@ -1,16 +1,19 @@
-import getArticles from "./get-articles";
 import { Grid } from "@styled-system/jsx";
+
 import Box from "@/shared/components/box";
+
 import ArticleCard from "@/entities/article/ui/article-card/article-card";
 
-type Props = {
+import getArticles from "./get-articles";
+
+type Properties = {
   slug?: string;
 };
 
 /**
  * Showing all articles or articles by tag
  */
-export default async function ArticleGridWidget({ slug }: Props) {
+export default async function ArticleGridWidget({ slug }: Properties) {
   const articleResponse = await getArticles({ slug });
 
   if (articleResponse.isErr()) {
@@ -18,7 +21,7 @@ export default async function ArticleGridWidget({ slug }: Props) {
   }
 
   if (articleResponse.value.length === 0) {
-    return null;
+    return;
   }
 
   return (

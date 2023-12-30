@@ -1,8 +1,9 @@
+import { cache } from "react";
+import { err, ok, ResultAsync } from "neverthrow";
+
+import { articleSchema } from "@/entities/article/model/article.model";
 import intoError from "@/shared/api/into-error";
 import { sanityClient } from "@/shared/sanity-client";
-import { ResultAsync, err, ok } from "neverthrow";
-import { cache } from "react";
-import { articleSchema } from "../model/article.model";
 
 const query = ` 
 *[_type == 'article' && slug.current == $slug] {
@@ -25,28 +26,30 @@ const query = `
     _createdAt
 }`;
 
-/**
- * Get all posts
- */
-type Params = {
+type Parameters = {
   params: {
     slug: string;
   };
 };
 
-async function getPostBySlugApi({ params }: Params) {
-  const postResponse = await ResultAsync.fromPromise(
+export const revalidate = 1;
+
+/**
+ * Get article by slug
+ */
+async function getArticleBySlugApi({ params }: Parameters) {
+  const articleResponse = await ResultAsync.fromPromise(
     sanityClient
       .fetch(query, params)
-      .then((res) => articleSchema.parse(res[0])),
+      .then((response) => articleSchema.parse(response[0])),
     (error) => intoError(error, "Something went wrong")
   );
 
-  if (postResponse.isErr()) {
-    return err(postResponse.error);
+  if (articleResponse.isErr()) {
+    return err(articleResponse.error);
   }
 
-  return ok(postResponse.value);
+  return ok(articleResponse.value);
 }
 
-export default cache(getPostBySlugApi);
+export default cache(getArticleBySlugApi);

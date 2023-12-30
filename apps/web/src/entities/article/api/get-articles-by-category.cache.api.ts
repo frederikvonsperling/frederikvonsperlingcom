@@ -1,10 +1,11 @@
-import { sanityClient } from "@/shared/sanity-client";
-import { ResultAsync, err, ok } from "neverthrow";
-import { z } from "zod";
-import { articleSchema } from "../model/article.model";
-import intoError from "@/shared/api/into-error";
 import { cache } from "react";
-import { ENTRY_STATUS } from "@/shared/lib/constants";
+import { err, ok, ResultAsync } from "neverthrow";
+import { z } from "zod";
+
+import { articleSchema } from "../model/article.model";
+
+import intoError from "@/shared/api/into-error";
+import { sanityClient } from "@/shared/sanity-client";
 
 const query = `
 *[_type == 'article' && count((tags[]->slug.current)[@ in $slugs]) > 0] {
@@ -29,13 +30,13 @@ const query = `
   }
 `;
 
-type Params = {
+type Parameters = {
   params: {
     slugs: Array<string>;
   };
 };
 
-async function getArticlesByCategoryApi({ params }: Params) {
+async function getArticlesByCategoryApi({ params }: Parameters) {
   const articlesResponse = await ResultAsync.fromPromise(
     sanityClient
       .fetch(query, params)

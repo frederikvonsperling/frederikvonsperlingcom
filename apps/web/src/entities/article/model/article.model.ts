@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 import { entrySchema } from "@/shared/base-entities";
 
 export const marksSchema = z.array(z.string());

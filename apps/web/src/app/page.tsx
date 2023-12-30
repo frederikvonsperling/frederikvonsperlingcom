@@ -1,11 +1,13 @@
-import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
-import { grid, hstack, vstack } from "@styled-system/patterns";
-import Heading from "@ui/components/heading/heading";
-import { css } from "styled-system/css";
-
-import GithubIcon from "@/shared/icons/github-icon";
-import Box from "@/shared/components/box";
+import { css } from "@styled-system/css";
 import { GridItem } from "@styled-system/jsx";
+import { grid } from "@styled-system/patterns";
+
+import Heading from "@ui/components/heading/heading";
+
+import Box from "@/shared/components/box";
+import GithubIcon from "@/shared/icons/github-icon";
+
+import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
 
 export default async function Page() {
   return (

@@ -1,17 +1,19 @@
-import Box from "@/shared/components/box";
-import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
-import { css } from "@styled-system/css";
-import { Grid, GridItem } from "@styled-system/jsx";
-import { grid, hstack } from "@styled-system/patterns";
-import Heading from "@ui/components/heading";
 import { Suspense } from "react";
 
-type Props = {
+import { css } from "@styled-system/css";
+import { Grid, GridItem } from "@styled-system/jsx";
+
+import Heading from "@ui/components/heading";
+
+import Box from "@/shared/components/box";
+import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
+
+type Properties = {
   params: { slug: string };
   children: React.ReactNode;
 };
 
-export default function Layout({ children, params }: Props) {
+export default function Layout({ children, params }: Properties) {
   return (
     <div className={css({ maxW: "5xl", mx: "auto", p: "4" })}>
       <Grid alignItems={"stretch"} gap="4" columns={12}>

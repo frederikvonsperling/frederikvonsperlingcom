@@ -1,18 +1,20 @@
 import Link from "next/link";
-import { ArticleType } from "../../model/article.model";
+
 import Card from "@ui/components/card";
 
-type Props = {
+import { ArticleType } from "@/entities/article/model/article.model";
+
+type Properties = {
   article: ArticleType;
 };
 
 /**
- * Single Post Card
+ * Single article card
  */
-export default function ArticleCard({ article }: Props) {
+export default function ArticleCard({ article }: Properties) {
   return (
     <Link
-      data-post-id={article._id}
+      data-article-id={article._id}
       key={article._id}
       href={`/articles/${article.slug.current}`}
       className="group"

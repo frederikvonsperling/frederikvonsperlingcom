@@ -1,8 +1,10 @@
-import { sanityClient } from "@/shared/sanity-client";
-import { ResultAsync, err, ok } from "neverthrow";
-import { z } from "zod";
-import intoError from "@/shared/api/into-error";
 import { cache } from "react";
+import { err, ok, ResultAsync } from "neverthrow";
+import { z } from "zod";
+
+import intoError from "@/shared/api/into-error";
+import { sanityClient } from "@/shared/sanity-client";
+
 import { tagSchema } from "../model/tag.model";
 
 const query = `

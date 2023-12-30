@@ -1,11 +1,11 @@
-import getArticleByCategoryCacheApi from "@/entities/article/api/get-articles-by-category.cache.api";
 import getArticlesCacheApi from "@/entities/article/api/get-articles.cache.api";
+import getArticleByCategoryCacheApi from "@/entities/article/api/get-articles-by-category.cache.api";
 
-type Props = {
+type Properties = {
   slug?: string;
 };
 
-export default async function getArticles({ slug }: Props) {
+export default async function getArticles({ slug }: Properties) {
   if (!slug) {
     const articleResponse = await getArticlesCacheApi();
     return articleResponse;

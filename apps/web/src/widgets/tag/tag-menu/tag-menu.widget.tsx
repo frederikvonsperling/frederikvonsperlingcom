@@ -1,13 +1,15 @@
 import { css } from "@styled-system/css";
 import { vstack } from "@styled-system/patterns";
-import SingleTag from "./single-tag";
+
 import getTagListsCacheApi from "@/entities/tag/api/get-tag-lists.cache.api";
 
-type Props = {
+import SingleTag from "./single-tag";
+
+type Properties = {
   slug?: string;
 };
 
-export default async function TagMenuWidget({ slug }: Props) {
+export default async function TagMenuWidget({ slug }: Properties) {
   const tagListsResponse = await getTagListsCacheApi();
 
   if (tagListsResponse.isErr()) {

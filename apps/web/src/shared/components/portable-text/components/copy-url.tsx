@@ -2,11 +2,11 @@
 
 import { css } from "@styled-system/css";
 
-type Props = {
+type Properties = {
   slug: string;
 };
 
-export default function CopyUrl({ slug }: Props) {
+export default function CopyUrl({ slug }: Properties) {
   function copyUrl() {
     navigator.clipboard.writeText(window.location.href + "#" + slug);
   }

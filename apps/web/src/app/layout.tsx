@@ -1,10 +1,13 @@
-import "./global.css";
-import { sourceCodePro, ibmPlexSans, ibmPlexSansCondensed } from "./fonts";
-import { Header } from "./header";
-import { Footer } from "./footer";
-import { css } from "@styled-system/css";
 import { Metadata } from "next";
-import "@/shared/lib/env-schema";
+
+import { css } from "@styled-system/css";
+
+import "@/shared/lib/environment-schema";
+import "@/app/global.css";
+
+import { ibmPlexSans, ibmPlexSansCondensed, sourceCodePro } from "./fonts";
+import { Footer } from "./footer";
+import { Header } from "./header";
 
 export const metadata: Metadata = {
   title: {

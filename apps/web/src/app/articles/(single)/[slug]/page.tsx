@@ -1,13 +1,15 @@
 import { Metadata } from "next";
 
-import SingleArticlePage from "@/page-views/article/single-article/single-article.page";
 import getArticleBySlugCacheApi from "@/entities/article/api/get-article-by-slug.cache.api";
+import SingleArticlePage from "@/page-views/article/single-article/single-article.page";
 
-type Props = {
+type Properties = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Properties): Promise<Metadata> {
   const articleResponse = await getArticleBySlugCacheApi({
     params: { slug: params.slug },
   });
@@ -21,6 +23,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: Properties) {
   return <SingleArticlePage slug={params.slug} />;
 }

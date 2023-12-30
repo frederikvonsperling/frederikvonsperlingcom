@@ -1,26 +1,20 @@
-import { css } from "@styled-system/css";
 import { PortableTextComponentProps, toPlainText } from "@portabletext/react";
 import { PortableTextBlock } from "@portabletext/types";
 import slugify from "slugify";
+
+import Heading from "@ui/components/heading";
+
 import CopyUrl from "./copy-url";
 
-export default function H3Block({
-  children,
-  value,
-}: PortableTextComponentProps<PortableTextBlock>) {
+type Properties = PortableTextComponentProps<PortableTextBlock>;
+
+export default function H3Block({ children, value }: Properties) {
   const slug = slugify(toPlainText(value), { lower: true });
 
   return (
-    <h3
-      id={slug}
-      className={css({
-        fontSize: "xl",
-        fontFamily: "heading",
-        fontWeight: "bold",
-      })}
-    >
+    <Heading id={slug} element="h3" size="h3">
       {children}
       <CopyUrl slug={slug} />
-    </h3>
+    </Heading>
   );
 }

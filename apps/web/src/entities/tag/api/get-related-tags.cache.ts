@@ -1,7 +1,9 @@
-import { ResultAsync, err, ok } from "neverthrow";
-import intoError from "@/shared/api/into-error";
 import { cache } from "react";
+import { err, ok, ResultAsync } from "neverthrow";
+
+import intoError from "@/shared/api/into-error";
 import { sanityClient } from "@/shared/sanity-client";
+
 import { relatedTagsSchema } from "../model/tag.model";
 
 const query = `
@@ -29,13 +31,13 @@ const query = `
     }
   }`;
 
-type Props = {
+type Properties = {
   params: {
     slug: string;
   };
 };
 
-async function getRelatedTagsApi({ params }: Props) {
+async function getRelatedTagsApi({ params }: Properties) {
   const tagsResponse = await ResultAsync.fromPromise(
     sanityClient
       .fetch(query, params)

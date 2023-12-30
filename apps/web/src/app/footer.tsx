@@ -1,5 +1,3 @@
-type Props = {};
-
-export const Footer = ({}: Props) => {
+export const Footer = () => {
   return <footer></footer>;
 };

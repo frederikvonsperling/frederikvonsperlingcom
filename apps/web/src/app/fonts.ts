@@ -1,9 +1,7 @@
 import {
-  Nunito,
-  PT_Sans,
-  Source_Code_Pro,
-  IBM_Plex_Sans_Condensed,
   IBM_Plex_Sans,
+  IBM_Plex_Sans_Condensed,
+  Source_Code_Pro,
 } from "next/font/google";
 
 export const sourceCodePro = Source_Code_Pro({
@@ -25,18 +23,4 @@ export const ibmPlexSans = IBM_Plex_Sans({
   display: "swap",
   variable: "--font-family-ibm-plex-sans",
   weight: ["200", "300", "400", "600", "700"],
-});
-
-export const nunito = Nunito({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-family-nunito",
-  weight: ["200", "300", "400", "600", "700", "800", "900"],
-});
-
-export const ptSans = PT_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-family-pt-sans",
-  weight: ["400", "700"],
 });

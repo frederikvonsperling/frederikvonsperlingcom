@@ -1,14 +1,16 @@
-import { TagModel } from "@/entities/tag/model/tag.model";
-import CategoryItem from "@/entities/tag/ui/tag-item";
-import { css } from "@styled-system/css";
 import Link from "next/link";
 
-type Props = {
+import { css } from "@styled-system/css";
+
+import { TagModel } from "@/entities/tag/model/tag.model";
+import CategoryItem from "@/entities/tag/ui/tag-item";
+
+type Properties = {
   tag: TagModel;
   isActive?: boolean;
 };
 
-export default function SingleTag({ tag, isActive }: Props) {
+export default function SingleTag({ tag, isActive }: Properties) {
   return (
     <Link
       key={tag._id}

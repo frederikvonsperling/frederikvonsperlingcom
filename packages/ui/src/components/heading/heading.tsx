@@ -1,41 +1,28 @@
 import { RecipeVariantProps } from "@pandacss/types";
-import { cva, cx } from "@styled-system/css";
+import { cx } from "@styled-system/css";
+import headingStyles from "./heading.styles";
 
-type Props = HeadingVariants & {
+type HeadingVariants = RecipeVariantProps<typeof headingStyles>;
+
+type HeadingOwnProperties = {
   children: React.ReactNode;
   element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
 };
 
-const headingStyles = cva({
-  base: {
-    fontFamily: "heading",
-    color: "white",
-    lineHeight: "tight",
-  },
-  variants: {
-    size: {
-      h1: { fontSize: "5xl", fontWeight: "normal" },
-      h2: { fontSize: "4xl", fontWeight: "extrabold" },
-      h3: { fontSize: "xl", fontWeight: "bold" },
-      h4: {},
-      h5: {},
-      h6: {},
-    },
-  },
-  defaultVariants: {
-    size: "h1",
-  },
-});
+type Properties = HeadingOwnProperties &
+  React.HTMLAttributes<HTMLHeadingElement> &
+  HeadingVariants;
 
-type HeadingVariants = RecipeVariantProps<typeof headingStyles>;
-
-export default function Heading({ children, element, size, className }: Props) {
+export default function Heading({
+  element,
+  size,
+  className,
+  ...props
+}: Properties) {
   const Component = element;
 
   return (
-    <Component className={cx(headingStyles({ size }), className)}>
-      {children}
-    </Component>
+    <Component className={cx(headingStyles({ size }), className)} {...props} />
   );
 }

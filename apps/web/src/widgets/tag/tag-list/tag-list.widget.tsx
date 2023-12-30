@@ -1,8 +1,10 @@
-import getTagsApiCache from "@/entities/tag/api/get-tags.api.cache";
-import CategoryItem from "@/entities/tag/ui/tag-item";
+import Link from "next/link";
+
 import { css } from "@styled-system/css";
 import { hstack } from "@styled-system/patterns";
-import Link from "next/link";
+
+import getTagsApiCache from "@/entities/tag/api/get-tags.api.cache";
+import CategoryItem from "@/entities/tag/ui/tag-item";
 
 export default async function TagsListWidget() {
   const tagsResponse = await getTagsApiCache();

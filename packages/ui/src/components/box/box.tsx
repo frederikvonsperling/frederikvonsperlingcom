@@ -1,12 +1,13 @@
+import { HTMLAttributes } from "react";
 import { RecipeVariantProps } from "@pandacss/types";
+
 import { cx } from "@styled-system/css";
 import { cva } from "@styled-system/css/cva";
-import { HTMLAttributes } from "react";
 
-type Props = {
+type Properties = {
   children?: React.ReactNode;
   className?: string;
-} & CardVariantProps &
+} & CardVariantProperties &
   HTMLAttributes<HTMLDivElement>;
 
 const cardStyles = cva({
@@ -26,20 +27,20 @@ const cardStyles = cva({
   },
 });
 
-type CardVariantProps = RecipeVariantProps<typeof cardStyles>;
+type CardVariantProperties = RecipeVariantProps<typeof cardStyles>;
 
 export default function Box({
   children,
   className,
   isLoading,
-  ...props
-}: Props) {
+  ...properties
+}: Properties) {
   return (
     // @NOTE: Background size tokens is not supported in PandaCSS
     <div
       style={{ backgroundSize: "400% 100%" }}
       className={cx(cardStyles({ isLoading }), className)}
-      {...props}
+      {...properties}
     >
       {children}
     </div>
