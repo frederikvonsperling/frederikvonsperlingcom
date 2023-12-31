@@ -2,9 +2,9 @@ import { css } from "@styled-system/css";
 import { Grid } from "@styled-system/jsx";
 
 import Badge from "@ui/components/badge";
+import Box from "@ui/components/box";
 import Heading from "@ui/components/heading/heading";
 
-import Box from "@/shared/components/box";
 import PortableText from "@/shared/components/portable-text";
 
 import getArticleBySlugCacheApi from "@/entities/article/api/get-article-by-slug.cache.api";

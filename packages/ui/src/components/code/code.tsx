@@ -4,10 +4,6 @@ type Properties = {
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLSpanElement>;
 
-export default function CodeMark({ children, ...rest }: Properties) {
-  return (
-    <span className={codeStyles} {...rest}>
-      {children}
-    </span>
-  );
+export default function CodeMark({ children }: Properties) {
+  return <span className={codeStyles}>{children}</span>;
 }

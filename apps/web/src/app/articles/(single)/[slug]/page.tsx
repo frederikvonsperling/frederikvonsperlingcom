@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import getArticleBySlugCacheApi from "@/entities/article/api/get-article-by-slug.cache.api";
+
 import SingleArticlePage from "@/page-views/article/single-article/single-article.page";
 
 type Properties = {

@@ -3,7 +3,8 @@ import Link from "next/link";
 import { css } from "@styled-system/css";
 import { Grid, GridItem } from "@styled-system/jsx";
 
-import Box from "@/shared/components/box/box";
+import Box from "@ui/components/box";
+
 import PostNavWidget from "@/widgets/article/article-nav/article-nav.widget";
 
 type Properties = {

@@ -8,8 +8,11 @@ export default cva({
   },
   variants: {
     size: {
-      h1: { fontSize: "5xl", fontWeight: "normal" },
-      h2: { fontSize: "4xl", fontWeight: "extrabold" },
+      h1: {
+        fontSize: "5xl",
+        fontWeight: "extrabold",
+      },
+      h2: { fontSize: "2xl", fontWeight: "extrabold" },
       h3: { fontSize: "xl", fontWeight: "bold" },
       h4: {},
       h5: {},

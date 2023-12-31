@@ -7,7 +7,7 @@ import { css, cva } from "@styled-system/css";
 import { Grid, GridItem } from "@styled-system/jsx";
 import { hstack } from "@styled-system/patterns";
 
-import Box from "@/shared/components/box";
+import Box from "@ui/components/box";
 
 const navItemStyles = cva({
   base: {
@@ -41,7 +41,14 @@ export const Header = () => {
       columns={12}
     >
       <GridItem colSpan={3}>
-        <Box className={css({ height: "full" })}>
+        <Box
+          className={css({
+            height: "full",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          })}
+        >
           <a href="/" className={css({ fontWeight: "bold" })}>
             Frederik von Sperling
           </a>

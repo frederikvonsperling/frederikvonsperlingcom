@@ -1,9 +1,10 @@
 import { cache } from "react";
 import { err, ok, ResultAsync } from "neverthrow";
 
-import { articleSchema } from "@/entities/article/model/article.model";
 import intoError from "@/shared/api/into-error";
 import { sanityClient } from "@/shared/sanity-client";
+
+import { articleSchema } from "@/entities/article/model/article.model";
 
 const query = ` 
 *[_type == 'article' && slug.current == $slug] {
@@ -31,8 +32,6 @@ type Parameters = {
     slug: string;
   };
 };
-
-export const revalidate = 1;
 
 /**
  * Get article by slug

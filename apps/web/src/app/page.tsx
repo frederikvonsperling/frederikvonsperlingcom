@@ -2,9 +2,9 @@ import { css } from "@styled-system/css";
 import { GridItem } from "@styled-system/jsx";
 import { grid } from "@styled-system/patterns";
 
+import Box from "@ui/components/box";
 import Heading from "@ui/components/heading/heading";
 
-import Box from "@/shared/components/box";
 import GithubIcon from "@/shared/icons/github-icon";
 
 import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";

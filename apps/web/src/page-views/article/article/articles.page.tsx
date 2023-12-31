@@ -4,9 +4,8 @@ import { css } from "@styled-system/css";
 import { Grid } from "@styled-system/jsx";
 import { hstack } from "@styled-system/patterns";
 
+import Box from "@ui/components/box";
 import Heading from "@ui/components/heading";
-
-import Box from "@/shared/components/box";
 
 import ArticlesGridWidget from "@/widgets/article/articles-grid/articles-grid.widget";
 

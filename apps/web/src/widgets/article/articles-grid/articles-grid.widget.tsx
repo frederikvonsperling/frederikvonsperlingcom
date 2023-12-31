@@ -1,6 +1,6 @@
 import { Grid } from "@styled-system/jsx";
 
-import Box from "@/shared/components/box";
+import Box from "@ui/components/box";
 
 import ArticleCard from "@/entities/article/ui/article-card/article-card";
 

@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import { css } from "@styled-system/css";
 import { Grid, GridItem } from "@styled-system/jsx";
 
+import Box from "@ui/components/box";
 import Heading from "@ui/components/heading";
 
-import Box from "@/shared/components/box";
 import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
 
 type Properties = {
@@ -20,7 +20,7 @@ export default function Layout({ children }: Properties) {
         <GridItem colSpan={3}>
           <Box>
             <Heading element="h3" size="h3" className={css({ mb: "4" })}>
-              Categories
+              Tags
             </Heading>
 
             <Suspense fallback={<p>Getting categories</p>}>
