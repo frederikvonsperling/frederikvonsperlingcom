@@ -3,7 +3,6 @@ import { err, ok, ResultAsync } from "neverthrow";
 import { z } from "zod";
 
 import intoError from "@/shared/api/into-error";
-import { ENTRY_STATUS } from "@/shared/lib/constants";
 import { sanityClient } from "@/shared/sanity-client";
 
 import { articleSchema } from "../model/article.model";
@@ -34,7 +33,7 @@ const query = `
 async function getArticlesApi() {
   const articlesResponse = await ResultAsync.fromPromise(
     sanityClient
-      .fetch(query, { status: ENTRY_STATUS })
+      .fetch(query)
       .then((articles) => z.array(articleSchema).parse(articles)),
     (error) => intoError(error, "Something went wrong")
   );
