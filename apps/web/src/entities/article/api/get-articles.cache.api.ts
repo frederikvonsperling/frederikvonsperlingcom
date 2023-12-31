@@ -2,11 +2,11 @@ import { cache } from "react";
 import { err, ok, ResultAsync } from "neverthrow";
 import { z } from "zod";
 
-import { articleSchema } from "../model/article.model";
-
 import intoError from "@/shared/api/into-error";
 import { ENTRY_STATUS } from "@/shared/lib/constants";
 import { sanityClient } from "@/shared/sanity-client";
+
+import { articleSchema } from "../model/article.model";
 
 const query = `
 *[_type == 'article'] {

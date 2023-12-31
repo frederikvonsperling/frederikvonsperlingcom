@@ -2,10 +2,10 @@ import { cache } from "react";
 import { err, ok, ResultAsync } from "neverthrow";
 import { z } from "zod";
 
-import { articleSchema } from "../model/article.model";
-
 import intoError from "@/shared/api/into-error";
 import { sanityClient } from "@/shared/sanity-client";
+
+import { articleSchema } from "../model/article.model";
 
 const query = `
 *[_type == 'article' && count((tags[]->slug.current)[@ in $slugs]) > 0] {
