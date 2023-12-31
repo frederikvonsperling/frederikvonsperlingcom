@@ -8,8 +8,6 @@ type Properties = {
   params: { slug: string };
 };
 
-export const revalidate = 1;
-
 export async function generateMetadata({
   params,
 }: Properties): Promise<Metadata> {
