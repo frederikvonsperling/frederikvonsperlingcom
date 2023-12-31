@@ -19,8 +19,11 @@ export async function generateMetadata({
     throw new Error(`Error getting article with ${params.slug}`);
   }
 
+  const article = articleResponse.value;
+
   return {
-    title: articleResponse.value.title,
+    title: article.title,
+    description: article.excerpt,
   };
 }
 
