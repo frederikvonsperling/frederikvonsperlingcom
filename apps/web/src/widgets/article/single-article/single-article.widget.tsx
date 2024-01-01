@@ -54,7 +54,7 @@ export default async function SingleArticleWidget({ slug }: Properties) {
             </p>
           </header>
 
-          <main>
+          <main className={css({ overflow: "hidden" })}>
             <PortableText content={article.content} />
           </main>
         </Grid>

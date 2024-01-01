@@ -1,5 +1,6 @@
 "use client";
 
+import { Children } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -8,6 +9,7 @@ import { Grid, GridItem } from "@styled-system/jsx";
 import { hstack } from "@styled-system/patterns";
 
 import Box from "@ui/components/box";
+import Container from "@ui/components/container/container";
 
 const navItemStyles = cva({
   base: {
@@ -27,20 +29,59 @@ const navItemStyles = cva({
   },
 });
 
-export const Header = () => {
-  const pathname = usePathname();
+type Properties = {
+  children: React.ReactNode;
+};
+
+export function GridTest({ children }: Properties) {
+  const childrenArray = Children.toArray(children);
+
+  if (childrenArray.length !== 2) {
+    throw new Error("GridTest requires exactly 2 children");
+  }
+
   return (
     <Grid
-      maxW={"5xl"}
-      mx={"auto"}
       color={"white"}
       alignItems={"stretch"}
       alignContent={"stretch"}
-      px={"4"}
       gap={"4"}
       columns={12}
     >
-      <GridItem colSpan={3}>
+      <GridItem colSpan={{ base: 12, sm: 4, md: 3 }}>
+        {childrenArray[0]}
+      </GridItem>
+      <GridItem colSpan={{ base: 12, sm: 8, md: 9 }}>
+        {childrenArray[1]}
+      </GridItem>
+    </Grid>
+  );
+}
+
+export function Navigation() {
+  const pathname = usePathname();
+
+  return (
+    <nav
+      className={hstack({
+        justifyContent: "center",
+        height: "full",
+      })}
+    >
+      <Link
+        className={navItemStyles({ isActive: pathname === "/articles" })}
+        href={"/articles"}
+      >
+        Articles
+      </Link>
+    </nav>
+  );
+}
+
+export const Header = () => {
+  return (
+    <Container>
+      <GridTest>
         <Box
           className={css({
             height: "full",
@@ -53,23 +94,11 @@ export const Header = () => {
             Frederik von Sperling
           </a>
         </Box>
-      </GridItem>
 
-      <GridItem colSpan={9}>
-        <Box
-          className={hstack({
-            justifyContent: "center",
-            height: "full",
-          })}
-        >
-          <Link
-            className={navItemStyles({ isActive: pathname === "/articles" })}
-            href={"/articles"}
-          >
-            Articles
-          </Link>
+        <Box>
+          <Navigation />
         </Box>
-      </GridItem>
-    </Grid>
+      </GridTest>
+    </Container>
   );
 };

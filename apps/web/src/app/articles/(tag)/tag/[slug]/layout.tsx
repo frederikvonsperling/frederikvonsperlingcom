@@ -4,6 +4,7 @@ import { css } from "@styled-system/css";
 import { Grid, GridItem } from "@styled-system/jsx";
 
 import Box from "@ui/components/box";
+import Container from "@ui/components/container";
 import Heading from "@ui/components/heading";
 
 import CategoryListWidget from "@/widgets/tag/tag-list/tag-list.widget";
@@ -15,7 +16,7 @@ type Properties = {
 
 export default function Layout({ children }: Properties) {
   return (
-    <div className={css({ maxW: "5xl", mx: "auto", p: "4" })}>
+    <Container>
       <Grid alignItems={"stretch"} gap="4" columns={12}>
         <GridItem colSpan={3}>
           <Box>
@@ -31,6 +32,6 @@ export default function Layout({ children }: Properties) {
 
         <GridItem colSpan={9}>{children}</GridItem>
       </Grid>
-    </div>
+    </Container>
   );
 }

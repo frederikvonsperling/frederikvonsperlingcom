@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 
-import { css } from "@styled-system/css";
+import { css, cx } from "@styled-system/css";
 
 import "@/shared/lib/environment-schema";
 import "@/app/global.css";
@@ -21,8 +21,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${ibmPlexSans.variable} ${ibmPlexSansCondensed.variable} ${sourceCodePro.variable}`}
-      style={{ backgroundColor: "#000000" }}
+      className={cx(
+        `${ibmPlexSans.variable} ${ibmPlexSansCondensed.variable} ${sourceCodePro.variable}`,
+        css({ backgroundColor: "black" })
+      )}
     >
       <head>
         <link
@@ -33,9 +35,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body
         className={css({
           w: "full",
-          h: "full",
-          minH: "screen",
-          my: "4",
         })}
       >
         <Header />

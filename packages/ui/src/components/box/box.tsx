@@ -2,32 +2,18 @@ import { HTMLAttributes } from "react";
 import { RecipeVariantProps } from "@pandacss/types";
 
 import { cx } from "@styled-system/css";
-import { cva } from "@styled-system/css/cva";
+import boxStyles from "./box.styles";
 
-type Properties = {
+type BoxOwnProperties = {
   children?: React.ReactNode;
   className?: string;
-} & CardVariantProperties &
+};
+
+type BoxVariantProperties = RecipeVariantProps<typeof boxStyles>;
+
+type Properties = BoxOwnProperties &
+  BoxVariantProperties &
   HTMLAttributes<HTMLDivElement>;
-
-const cardStyles = cva({
-  base: {
-    p: "4",
-    backgroundColor: "offWhite.50",
-    borderRadius: "lg",
-    border: "subtle",
-  },
-  variants: {
-    isLoading: {
-      true: {
-        backgroundGradient: "shine",
-        animation: "shine",
-      },
-    },
-  },
-});
-
-type CardVariantProperties = RecipeVariantProps<typeof cardStyles>;
 
 export default function Box({
   children,
@@ -39,7 +25,7 @@ export default function Box({
     // @NOTE: Background size tokens is not supported in PandaCSS
     <div
       style={{ backgroundSize: "400% 100%" }}
-      className={cx(cardStyles({ isLoading }), className)}
+      className={cx(boxStyles({ isLoading }), className)}
       {...properties}
     >
       {children}
